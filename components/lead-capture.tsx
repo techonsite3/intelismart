@@ -32,6 +32,8 @@ export function LeadCapture({ variant = "hero" }: LeadCaptureProps) {
 
 export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => void }) {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [name, setName] = useState("");
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [serviceError, setServiceError] = useState(false);
@@ -50,9 +52,35 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [onClose]);
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setSubmitting(true);
+    setSubmitError("");
+
+    const formData = new FormData(event.currentTarget);
+    const response = await fetch("/api/ringcentral/callback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        type,
+        name,
+        phone: formData.get("phone"),
+        email: formData.get("email"),
+        services: selectedServices
+      })
+    }).catch(() => null);
+
+    if (!response?.ok) {
+      const data = await response?.json().catch(() => null);
+      setSubmitError(data?.error || "We couldn't start the call. Please try again.");
+      setSubmitting(false);
+      return;
+    }
+
     setSent(true);
+    setSubmitting(false);
   }
 
   function continueToServices(event: FormEvent<HTMLFormElement>) {
@@ -204,7 +232,13 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
                 ) : null}
                 <label>
                   Phone number
-                  <input name="phone" type="tel" placeholder="(000) 000-0000" required />
+                  <input
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    placeholder="(000) 000-0000"
+                    required
+                  />
                 </label>
                 {!isSchedule ? (
                   <label>
@@ -217,15 +251,20 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
                     <button className="btn btn-ghost" type="button" onClick={() => setRequestStep("services")}>
                       Back
                     </button>
-                    <button className="btn btn-light" type="submit">
-                      Send request
+                    <button className="btn btn-light" type="submit" disabled={submitting}>
+                      {submitting ? "Starting call..." : "Send request"}
                     </button>
                   </div>
                 ) : (
-                  <button className="btn btn-light" type="submit">
-                    Request my call
+                  <button className="btn btn-light" type="submit" disabled={submitting}>
+                    {submitting ? "Starting call..." : "Request my call"}
                   </button>
                 )}
+                {submitError ? (
+                  <p className="service-error" role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
               </form>
             )}
           </>
