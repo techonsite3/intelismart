@@ -65,7 +65,14 @@ export default async function ServiceDetailPage({
       <SiteHeader />
       <StickyBottomMenu />
       <section className="service-detail-hero">
-        <Image src={service.image} alt={service.alt} fill priority sizes="100vw" />
+        <Image
+          src={service.image}
+          alt={service.alt}
+          fill
+          priority
+          sizes="100vw"
+          style={service.heroImagePosition ? { objectPosition: service.heroImagePosition } : undefined}
+        />
         <div className="media-scrim" />
         <div className="service-detail-copy">
           <p className="label">{service.kicker}</p>
@@ -191,11 +198,11 @@ export default async function ServiceDetailPage({
         <section className="service-faq-section">
           <div className="service-faq-head">
             <p className="label">FAQ</p>
-            <h2>Common questions before we scope the work.</h2>
+            <h2>Frequently Asked Questions</h2>
           </div>
           <div className="service-faq-list">
             {service.faqs?.map((faq) => (
-              <details key={faq.question}>
+              <details key={faq.question} open>
                 <summary>{faq.question}</summary>
                 <p>{faq.answer}</p>
               </details>
@@ -204,7 +211,7 @@ export default async function ServiceDetailPage({
               <article className="service-faq-group" key={group.title}>
                 <h3>{group.title}</h3>
                 {group.items.map((faq) => (
-                  <details key={`${group.title}-${faq.question}`}>
+                  <details key={`${group.title}-${faq.question}`} open>
                     <summary>{faq.question}</summary>
                     <p>{faq.answer}</p>
                   </details>

@@ -38,6 +38,7 @@ export type Service = {
   bullets: string[];
   image: string;
   alt: string;
+  heroImagePosition?: string;
   images?: ServiceImage[];
   sections: ServiceSection[];
   workflow?: ServiceSection;
@@ -54,7 +55,7 @@ export type Service = {
 
 export const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-intelismart" },
   { label: "Industries", href: "/industries" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" }
@@ -856,7 +857,8 @@ export const services: Service[] = [
       "Scenario drills and recovery exercises",
       "Playbooks, SOPs, and recorded modules"
     ],
-    image: `${serviceImagePath}Training-Enablement-1.png`,
+    image: "/intelismart-training.png",
+    heroImagePosition: "center top",
     alt: "Monitoring dashboard used for systems operations training",
     sections: [
       {
@@ -1269,8 +1271,8 @@ export const contact = {
 
 export const navGroups = {
   about: [
-    { label: "About Intelismart", href: "/about" },
-    { label: "Our Approach", href: "/about#approach" }
+    { label: "About Us", href: "/about-intelismart" },
+    { label: "Our Approach", href: "/about" }
   ],
   industries: industries.map((industry) => ({
     label: industry.title,

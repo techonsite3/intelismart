@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { CircleArrowOutUpRight, Mail, Phone } from "lucide-react";
+import { CircleArrowOutUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { contact, services } from "@/lib/site-content";
 
 const footerNav = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about-intelismart" },
+  { label: "Our Approach", href: "/about" },
   { label: "Industries", href: "/industries" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" }
@@ -62,6 +63,20 @@ export function SiteFooter() {
             <Phone size={13} aria-hidden="true" />
             {contact.phone}
           </a>
+          <div className="footer-locations" aria-label="Office locations">
+            <MapPin size={13} aria-hidden="true" />
+            <div>
+              <div className="footer-location">
+                <span className="footer-location-flag" aria-hidden="true">🇺🇸</span>
+                <span className="footer-location-country">USA</span>
+                <address>11767 Katy Freeway, Houston Texas - 77079.</address>
+              </div>
+              <div className="footer-location">
+                <span className="footer-location-flag" aria-hidden="true">🇨🇦</span>
+                <span className="footer-location-country">Canada</span>
+              </div>
+            </div>
+          </div>
           <a
             className="footer-portal-link"
             href="/portal"

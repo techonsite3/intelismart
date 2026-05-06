@@ -140,6 +140,10 @@ export default function Home() {
             We consolidate, optimize, and integrate your systems into one
             efficient, high-performing infrastructure.
           </p>
+          <a className="home-about-link" href="/about-intelismart">
+            About Us
+            <ArrowRight aria-hidden="true" size={15} />
+          </a>
         </div>
         <div className="home-check-grid">
           {painPoints.map((item) => (

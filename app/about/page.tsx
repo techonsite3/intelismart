@@ -10,7 +10,7 @@ export default function AboutPage() {
       <SiteHeader />
       <StickyBottomMenu />
       <section className="page-hero">
-        <p className="label">About Intelismart</p>
+        <p className="label">Our Approach</p>
         <h1>Reliable infrastructure, clean execution, long-term support.</h1>
         <p>
           Intelismart designs, deploys, and supports secure technology systems

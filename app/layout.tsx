@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     canonical: "/"
   },
   icons: {
-    icon: [{ url: "/inteli-trans.png", sizes: "1024x1024", type: "image/png" }],
-    apple: [{ url: "/inteli-trans.png", type: "image/png" }]
+    icon: [{ url: "/favicon.png", sizes: "512x512", type: "image/png" }],
+    apple: [{ url: "/favicon.png", sizes: "512x512", type: "image/png" }]
   },
   openGraph: {
     title,

@@ -7,7 +7,8 @@ import { MobileNav } from "@/components/mobile-nav";
 import { contact, navGroups } from "@/lib/site-content";
 
 const mobileItems = [
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about-intelismart" },
+  { label: "Our Approach", href: "/about" },
   { label: "Industries", href: "/industries" },
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" }

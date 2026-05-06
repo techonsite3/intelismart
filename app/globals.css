@@ -1089,6 +1089,37 @@ h3 {
   max-width: 720px;
 }
 
+.home-about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  border: 1px solid rgba(241, 135, 59, 0.46);
+  border-radius: 3px;
+  padding: 11px 18px;
+  color: var(--white);
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 220ms ease,
+    transform 180ms ease;
+}
+
+.home-about-link:hover {
+  border-color: rgba(241, 135, 59, 0.78);
+  background: rgba(241, 135, 59, 0.1);
+  box-shadow: 0 12px 34px rgba(241, 135, 59, 0.16);
+  transform: translateY(-2px);
+}
+
+.home-about-link svg {
+  color: var(--accent-strong);
+}
+
 .home-section-copy p:not(.label),
 .home-evaluation-copy p,
 .home-dual-section p {
@@ -2274,6 +2305,44 @@ h3 {
   color: var(--accent);
 }
 
+.footer-locations {
+  display: grid;
+  grid-template-columns: 13px 1fr;
+  gap: 9px;
+  margin: 14px 0 6px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.footer-locations svg {
+  margin-top: 3px;
+  color: var(--accent);
+}
+
+.footer-location + .footer-location {
+  margin-top: 10px;
+}
+
+.footer-location-flag {
+  display: inline-flex;
+  width: 22px;
+  margin-right: 7px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.footer-location-country {
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 800;
+}
+
+.footer-location address {
+  margin: 5px 0 0 29px;
+  color: rgba(255, 255, 255, 0.48);
+  font-style: normal;
+}
+
 .footer-col-heading {
   display: block;
   margin-bottom: 18px;
@@ -2478,6 +2547,259 @@ h3 {
 
 .page-hero .lead-actions {
   margin-top: 24px;
+}
+
+/* ─── ABOUT INTELISMART ─────────────────────────────────── */
+
+.about-intel-hero {
+  min-height: 92svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.48fr);
+  align-items: end;
+  gap: clamp(36px, 5vw, 88px);
+  padding: 170px var(--content-gutter) 88px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.62) 48%, rgba(0, 0, 0, 0.34)),
+    url("/video/intelismart-hero-poster.jpg") center / cover;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.about-intel-hero-copy {
+  width: min(900px, 100%);
+}
+
+.about-intel-hero-copy p:not(.label),
+.about-story-copy p,
+.about-method-head p,
+.about-value-copy p,
+.about-impact-section p,
+.about-final-section p {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+}
+
+.about-intel-hero-copy p:not(.label) {
+  max-width: 780px;
+  font-size: 1.08rem;
+}
+
+.about-intel-hero .lead-actions {
+  margin-top: 28px;
+}
+
+.about-intel-hero-panel {
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  padding: 28px;
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.about-intel-hero-panel span {
+  display: block;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.about-intel-hero-panel strong {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.about-intel-hero-panel p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.58;
+}
+
+.about-story-section,
+.about-method-section,
+.about-value-section,
+.about-impact-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: clamp(42px, 6vw, 96px);
+  padding: 112px var(--content-gutter);
+  background: var(--black);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.about-story-copy {
+  align-self: center;
+}
+
+.about-story-copy p {
+  max-width: 700px;
+}
+
+.about-story-image {
+  position: relative;
+  min-height: 540px;
+  margin: 0;
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.about-story-image img {
+  object-fit: cover;
+}
+
+.about-core-section {
+  padding: 112px var(--content-gutter);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+    var(--near-black);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.about-service-grid {
+  width: min(1180px, 100%);
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.about-service-card {
+  min-height: 260px;
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.about-service-card svg {
+  margin-bottom: 24px;
+  color: var(--accent-strong);
+}
+
+.about-service-card p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.64);
+  line-height: 1.58;
+}
+
+.about-method-head,
+.about-value-copy {
+  align-self: start;
+}
+
+.about-method-list {
+  display: grid;
+  gap: 0;
+}
+
+.about-method-list article {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 20px;
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.about-method-list article + article {
+  padding-top: 28px;
+}
+
+.about-method-list span {
+  color: var(--accent-strong);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.about-method-list p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.6;
+}
+
+.about-value-section {
+  background: var(--near-black);
+}
+
+.about-value-list {
+  display: grid;
+  gap: 12px;
+  align-self: center;
+}
+
+.about-value-list div,
+.about-outcome-panel div {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.about-value-list div {
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.about-value-list svg,
+.about-outcome-panel svg {
+  margin-top: 4px;
+  color: var(--accent-strong);
+}
+
+.about-value-list p,
+.about-outcome-panel p {
+  margin: 0;
+}
+
+.about-industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.about-industry-tags span {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 9px 13px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.about-outcome-panel {
+  display: grid;
+  gap: 18px;
+  align-self: start;
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.about-outcome-panel .label {
+  margin-bottom: 2px;
+}
+
+.about-final-section {
+  padding: 112px var(--content-gutter);
+  background:
+    linear-gradient(90deg, rgba(198, 106, 50, 0.16), rgba(0, 0, 0, 0) 55%),
+    var(--black);
+}
+
+.about-final-section > div {
+  width: min(900px, 100%);
 }
 
 /* ─── PORTAL PREVIEW ───────────────────────────────────────── */
@@ -3083,7 +3405,12 @@ h3 {
   .home-evaluation-section,
   .home-transformation-section,
   .image-feature,
-  .contact-section {
+  .contact-section,
+  .about-intel-hero,
+  .about-story-section,
+  .about-method-section,
+  .about-value-section,
+  .about-impact-section {
     grid-template-columns: 1fr;
   }
 
@@ -3097,8 +3424,17 @@ h3 {
 
   .bundle-grid,
   .core-service-grid,
-  .process-grid {
+  .process-grid,
+  .about-service-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-intel-hero-panel {
+    width: min(620px, 100%);
+  }
+
+  .about-story-image {
+    min-height: 420px;
   }
 
   .compass-cta {
@@ -3371,6 +3707,38 @@ h3 {
 
   .page-hero {
     padding: 128px 20px 70px;
+  }
+
+  .about-intel-hero,
+  .about-story-section,
+  .about-core-section,
+  .about-method-section,
+  .about-value-section,
+  .about-impact-section,
+  .about-final-section {
+    padding: 86px 20px;
+  }
+
+  .about-intel-hero {
+    min-height: auto;
+    padding-top: 130px;
+  }
+
+  .about-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-service-card {
+    min-height: 0;
+  }
+
+  .about-story-image {
+    min-height: 300px;
+  }
+
+  .about-method-list article {
+    grid-template-columns: 46px 1fr;
+    gap: 14px;
   }
 
   .portal-coming-soon {

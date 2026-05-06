@@ -121,7 +121,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
               {isSchedule
                 ? "We're excited to help you."
                 : requestStep === "name"
-                  ? "I'm Telli, a smart assistant."
+                  ? "I'm a Specialist and ready to help you."
                   : requestStep === "services"
                   ? "Choose your service."
                   : `${firstName}, where should we reach you?`}
@@ -130,7 +130,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
               {isSchedule
                 ? "Share the best phone number for you. Somebody will be reaching out to you very soon."
                 : requestStep === "name"
-                  ? "What is your name?"
+                  ? "What is you name?"
                   : requestStep === "services"
                     ? `Thanks, ${firstName}. Select one or more areas where Intelismart can help.`
                     : "Add your contact details and we'll route this to the right team."}
