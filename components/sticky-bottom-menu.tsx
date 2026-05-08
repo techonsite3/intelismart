@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CalendarDays, Wrench } from "lucide-react";
+import { Wrench } from "lucide-react";
+import { ScheduleConsultationButton } from "@/components/booking-modal";
 import { LeadModal } from "@/components/lead-capture";
 
 export function StickyBottomMenu() {
   const [visible, setVisible] = useState(false);
-  const [active, setActive] = useState<"schedule" | "request" | null>(null);
+  const [active, setActive] = useState<"request" | null>(null);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 140);
@@ -22,10 +23,9 @@ export function StickyBottomMenu() {
           <span />
           Intelismart
         </a>
-        <button className="sticky-schedule" type="button" onClick={() => setActive("schedule")}>
-          <CalendarDays aria-hidden="true" size={14} />
+        <ScheduleConsultationButton className="sticky-schedule" iconSize={14}>
           Schedule
-        </button>
+        </ScheduleConsultationButton>
         <button className="sticky-primary" type="button" onClick={() => setActive("request")}>
           <Wrench aria-hidden="true" size={14} />
           Request evaluation

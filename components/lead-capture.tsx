@@ -1,13 +1,18 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { CalendarDays, Phone, Wrench, X } from "lucide-react";
+import { Phone, Wrench, X } from "lucide-react";
+import { ScheduleConsultationButton } from "@/components/booking-modal";
 import { services } from "@/lib/site-content";
 
-type LeadType = "schedule" | "request";
+type LeadType = "callback" | "request";
 
 type LeadCaptureProps = {
   variant?: "hero" | "sticky" | "inline";
+};
+
+type RequestCallbackButtonProps = {
+  className?: string;
 };
 
 export function LeadCapture({ variant = "hero" }: LeadCaptureProps) {
@@ -20,12 +25,27 @@ export function LeadCapture({ variant = "hero" }: LeadCaptureProps) {
           <Wrench aria-hidden="true" size={15} />
           Request System Evaluation
         </button>
-        <button type="button" className="btn btn-ghost" onClick={() => setActive("schedule")}>
-          <CalendarDays aria-hidden="true" size={15} />
-          Schedule Consultation
-        </button>
+        <ScheduleConsultationButton />
       </div>
       {active ? <LeadModal type={active} onClose={() => setActive(null)} /> : null}
+    </>
+  );
+}
+
+export function RequestCallbackButton({ className = "" }: RequestCallbackButtonProps) {
+  const [active, setActive] = useState(false);
+
+  return (
+    <>
+      <button
+        type="button"
+        className={`btn btn-light request-callback-button ${className}`.trim()}
+        onClick={() => setActive(true)}
+      >
+        <Phone aria-hidden="true" size={15} />
+        Request callback
+      </button>
+      {active ? <LeadModal type="callback" onClose={() => setActive(false)} /> : null}
     </>
   );
 }
@@ -38,7 +58,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [serviceError, setServiceError] = useState(false);
   const [requestStep, setRequestStep] = useState<"name" | "services" | "contact">("name");
-  const isSchedule = type === "schedule";
+  const isCallback = type === "callback";
   const firstName = name.trim().split(/\s+/)[0] || "there";
 
   useEffect(() => {
@@ -58,23 +78,35 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
     setSubmitError("");
 
     const formData = new FormData(event.currentTarget);
-    const response = await fetch("/api/ringcentral/callback", {
+    const endpoint = isCallback ? "/api/ringcentral/callback" : "/api/contact";
+    const payload = isCallback
+      ? {
+          type: "schedule",
+          name,
+          phone: formData.get("phone")
+        }
+      : {
+          formType: "system-evaluation",
+          name,
+          services: selectedServices,
+          phone: formData.get("phone"),
+          email: formData.get("email")
+        };
+
+    const response = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        type,
-        name,
-        phone: formData.get("phone"),
-        email: formData.get("email"),
-        services: selectedServices
-      })
+      body: JSON.stringify(payload)
     }).catch(() => null);
 
     if (!response?.ok) {
       const data = await response?.json().catch(() => null);
-      setSubmitError(data?.error || "We couldn't start the call. Please try again.");
+      setSubmitError(
+        data?.error ||
+          (isCallback ? "We couldn't start the call. Please try again." : "We couldn't send your request. Please try again.")
+      );
       setSubmitting(false);
       return;
     }
@@ -132,11 +164,12 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
             </span>
             <p className="label">Request received</p>
             <h2 id="lead-modal-title">
-              {isSchedule ? "Somebody will be reaching out very soon." : `Thanks, ${firstName}. We'll take it from here.`}
+              {isCallback ? "Somebody will be reaching out very soon." : `Thanks, ${firstName}. We'll take it from here.`}
             </h2>
             <p>
-              We're excited to help you. An Intelismart team member will follow up
-              using the contact details you provided.
+              {isCallback
+                ? "We're excited to help you. An Intelismart team member will follow up using the phone number you provided."
+                : "We're excited to help you. Your request has been sent to the Intelismart team."}
             </p>
             <button className="btn btn-light" type="button" onClick={onClose}>
               Done
@@ -144,9 +177,9 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
           </div>
         ) : (
           <>
-            <p className="label">{isSchedule ? "Schedule consultation" : "Request system evaluation"}</p>
+            <p className="label">{isCallback ? "Request callback" : "Request system evaluation"}</p>
             <h2 id="lead-modal-title">
-              {isSchedule
+              {isCallback
                 ? "We're excited to help you."
                 : requestStep === "name"
                   ? "I'm a Specialist and ready to help you."
@@ -155,7 +188,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
                   : `${firstName}, where should we reach you?`}
             </h2>
             <p className="lead-intro">
-              {isSchedule
+              {isCallback
                 ? "Share the best phone number for you. Somebody will be reaching out to you very soon."
                 : requestStep === "name"
                   ? "What is you name?"
@@ -163,7 +196,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
                     ? `Thanks, ${firstName}. Select one or more areas where Intelismart can help.`
                     : "Add your contact details and we'll route this to the right team."}
             </p>
-            {!isSchedule && requestStep === "name" ? (
+            {!isCallback && requestStep === "name" ? (
               <form className="lead-form" onSubmit={continueToServices}>
                 <label>
                   Name
@@ -182,7 +215,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
                   Continue
                 </button>
               </form>
-            ) : !isSchedule && requestStep === "services" ? (
+            ) : !isCallback && requestStep === "services" ? (
               <div className="lead-form">
                 <fieldset className="service-picker" aria-describedby={serviceError ? "service-error" : undefined}>
                   <legend>Services</legend>
@@ -219,7 +252,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
               </div>
             ) : (
               <form className="lead-form" onSubmit={submit}>
-                {!isSchedule ? (
+                {!isCallback ? (
                   <div className="selected-services-summary" aria-label="Selected services">
                     <span>Selected</span>
                     <input type="hidden" name="name" value={name} />
@@ -240,19 +273,19 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
                     required
                   />
                 </label>
-                {!isSchedule ? (
+                {!isCallback ? (
                   <label>
                     Email
                     <input name="email" type="email" placeholder="you@company.com" required />
                   </label>
                 ) : null}
-                {!isSchedule ? (
+                {!isCallback ? (
                   <div className="lead-form-actions">
                     <button className="btn btn-ghost" type="button" onClick={() => setRequestStep("services")}>
                       Back
                     </button>
                     <button className="btn btn-light" type="submit" disabled={submitting}>
-                      {submitting ? "Starting call..." : "Send request"}
+                      {submitting ? "Sending..." : "Send request"}
                     </button>
                   </div>
                 ) : (

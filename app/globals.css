@@ -1061,6 +1061,71 @@ h3 {
   color: var(--black);
 }
 
+/* ─── BOOKINGS MODAL ────────────────────────────────────── */
+
+.booking-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.82);
+  padding: 18px;
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+}
+
+.booking-modal {
+  position: relative;
+  width: min(100%, 760px);
+  height: min(82dvh, 760px);
+  min-height: 560px;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 32px 110px rgba(0, 0, 0, 0.72);
+  cursor: default;
+}
+
+.booking-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(5, 5, 5, 0.92);
+  color: var(--white);
+  padding: 0 14px;
+  cursor: pointer;
+  transition: background 160ms ease, transform 180ms ease;
+}
+
+.booking-close:hover {
+  background: var(--black);
+  transform: translateY(-1px);
+}
+
+.booking-close span {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.booking-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* ─── HOMEPAGE CONTENT BANDS ─────────────────────────────── */
 
 .hero-value-hook {
@@ -2143,6 +2208,58 @@ h3 {
 
 .contact-links a:hover {
   color: var(--white);
+}
+
+.contact-action-panel {
+  width: min(720px, 100%);
+  display: grid;
+  gap: 14px;
+}
+
+.contact-choice-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.request-callback-button {
+  min-height: 54px;
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-message-button {
+  min-height: 54px;
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-message-button[aria-expanded="true"] {
+  border-color: rgba(241, 135, 59, 0.78);
+  background: rgba(241, 135, 59, 0.12);
+}
+
+.contact-success-panel {
+  width: min(720px, 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.045)),
+    rgba(16, 16, 16, 0.92);
+  padding: 30px;
+  box-shadow: 0 32px 110px rgba(0, 0, 0, 0.58);
+}
+
+.contact-success-panel h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  line-height: 1.08;
+}
+
+.contact-success-panel p:not(.label) {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
 }
 
 .contact-form {
@@ -3656,6 +3773,10 @@ h3 {
     grid-column: auto;
   }
 
+  .contact-choice-buttons {
+    grid-template-columns: 1fr;
+  }
+
   .contact-form {
     grid-template-columns: 1fr;
   }
@@ -3821,6 +3942,13 @@ h3 {
     width: 100%;
     max-width: calc(100dvw - 28px);
     padding: 22px;
+  }
+
+  .booking-modal {
+    width: 100%;
+    max-width: calc(100dvw - 28px);
+    height: 82dvh;
+    min-height: 520px;
   }
 
   .lead-modal h2 {

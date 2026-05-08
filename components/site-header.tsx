@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ChevronDown, CircleArrowOutUpRight, Menu, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
+import { BookingModalHost } from "@/components/booking-modal";
 import { MobileNav } from "@/components/mobile-nav";
 import { contact, navGroups } from "@/lib/site-content";
 
@@ -25,53 +26,56 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
-      <div className="header-inner">
-        <a className="brand-image" href="/" aria-label="Intelismart home">
-          <Image
-            className="brand-mark"
-            src="/inteli-trans.png"
-            alt=""
-            width={1024}
-            height={1024}
-            priority
+    <>
+      <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+        <div className="header-inner">
+          <a className="brand-image" href="/" aria-label="Intelismart home">
+            <Image
+              className="brand-mark"
+              src="/inteli-trans.png"
+              alt=""
+              width={1024}
+              height={1024}
+              priority
+            />
+            <span className="brand-divider" aria-hidden="true" />
+            <span className="brand-text">Intelismart</span>
+          </a>
+
+          <nav aria-label="Primary navigation" className="desktop-nav">
+            <a href="/">Home</a>
+            <Dropdown label="About" items={navGroups.about} />
+            <Dropdown label="Industries" items={navGroups.industries} />
+            <Dropdown label="Services" items={navGroups.services} />
+          </nav>
+
+          <a className="header-phone" href={`tel:${contact.phoneLink}`}>
+            <Phone aria-hidden="true" size={14} />
+            {contact.phone}
+          </a>
+          <a className="header-contact" href="/contact">
+            Contact Us
+          </a>
+          <a
+            className="portal-link"
+            href="/portal"
+          >
+            <CircleArrowOutUpRight aria-hidden="true" size={13} />
+            Client Portal
+          </a>
+          <MobileNav
+            items={mobileItems}
+            trigger={
+              <>
+                <Menu aria-hidden="true" size={20} />
+                <span className="sr-only">Open navigation</span>
+              </>
+            }
           />
-          <span className="brand-divider" aria-hidden="true" />
-          <span className="brand-text">Intelismart</span>
-        </a>
-
-        <nav aria-label="Primary navigation" className="desktop-nav">
-          <a href="/">Home</a>
-          <Dropdown label="About" items={navGroups.about} />
-          <Dropdown label="Industries" items={navGroups.industries} />
-          <Dropdown label="Services" items={navGroups.services} />
-        </nav>
-
-        <a className="header-phone" href={`tel:${contact.phoneLink}`}>
-          <Phone aria-hidden="true" size={14} />
-          {contact.phone}
-        </a>
-        <a className="header-contact" href="/contact">
-          Contact Us
-        </a>
-        <a
-          className="portal-link"
-          href="/portal"
-        >
-          <CircleArrowOutUpRight aria-hidden="true" size={13} />
-          Client Portal
-        </a>
-        <MobileNav
-          items={mobileItems}
-          trigger={
-            <>
-              <Menu aria-hidden="true" size={20} />
-              <span className="sr-only">Open navigation</span>
-            </>
-          }
-        />
-      </div>
-    </header>
+        </div>
+      </header>
+      <BookingModalHost />
+    </>
   );
 }
 
