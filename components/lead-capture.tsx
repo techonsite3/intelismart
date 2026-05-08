@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { Phone, Wrench, X } from "lucide-react";
+import { Mail, Phone, Wrench, X } from "lucide-react";
 import { ScheduleConsultationButton } from "@/components/booking-modal";
 import { services } from "@/lib/site-content";
 
@@ -160,7 +160,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
         {sent ? (
           <div className="lead-success">
             <span>
-              <Phone aria-hidden="true" size={20} />
+              {isCallback ? <Phone aria-hidden="true" size={20} /> : <Mail aria-hidden="true" size={20} />}
             </span>
             <p className="label">Request received</p>
             <h2 id="lead-modal-title">
