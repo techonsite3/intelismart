@@ -89,7 +89,8 @@ export function ScheduleConsultationButton({
     <button
       type="button"
       className={className}
-      onClick={() => window.dispatchEvent(new Event(OPEN_BOOKING_EVENT))}
+      disabled
+      title="Scheduling will be available soon."
     >
       <CalendarDays aria-hidden="true" size={iconSize} />
       {children}
