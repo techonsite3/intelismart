@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { CalendarDays, X } from "lucide-react";
 
-const BOOKINGS_URL = "https://outlook.office365.com/book/YOUR-PLACEHOLDER-LINK-HERE";
+const BOOKINGS_URL = "https://outlook.office.com/book/salesintelismartcom@intelismart.com/";
 const OPEN_BOOKING_EVENT = "intelismart:open-booking";
 
 type BookingModalProps = {
@@ -58,6 +58,7 @@ export function BookingModal({ open, onClose }: BookingModalProps) {
           src={BOOKINGS_URL}
           title="Schedule Consultation"
           className="booking-frame"
+          scrolling="yes"
           allowFullScreen
         />
       </div>
@@ -89,8 +90,7 @@ export function ScheduleConsultationButton({
     <button
       type="button"
       className={className}
-      disabled
-      title="Scheduling will be available soon."
+      onClick={() => window.dispatchEvent(new CustomEvent(OPEN_BOOKING_EVENT))}
     >
       <CalendarDays aria-hidden="true" size={iconSize} />
       {children}

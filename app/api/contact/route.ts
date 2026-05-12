@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = "Intelismart <noreply@send.intelismart.com>";
-const TO_EMAIL = process.env.CONTACT_EMAIL || "support@intelismart.com";
+const TO_EMAIL = process.env.CONTACT_EMAIL || "sales@intelismart.com";
 
 const phoneSchema = z
   .string()
@@ -134,6 +134,56 @@ function buildEmail(data: ContactRequest) {
   };
 }
 
+function buildAcknowledgementEmail(data: ContactRequest) {
+  if (data.formType === "system-evaluation") {
+    return {
+      subject: "We received your Intelismart system evaluation request",
+      html: emailShell(
+        "We received your request",
+        "Intelismart confirmation",
+        `
+          <p style="margin: 0 0 18px; color: #111827; font-size: 16px; line-height: 1.65;">
+            Hi ${escapeHtml(data.name)}, thanks for reaching out. The Intelismart team has your system evaluation request and is reviewing the details so we can follow up with the right next step.
+          </p>
+          <p style="margin: 0 0 16px; color: #111827; font-size: 16px; line-height: 1.65;">
+            We will reach back out using the email or phone number you provided.
+          </p>
+          <div style="margin-top: 26px; border-radius: 14px; background: #f9fafb; padding: 20px;">
+            <p style="margin: 0 0 12px; color: #71717a; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;">Your Selected Services</p>
+            <div>${servicesList(data.services)}</div>
+          </div>
+          <p style="margin: 22px 0 0; color: #52525b; font-size: 14px; line-height: 1.6;">
+            If you need to add anything else, reply to this email and it will go directly to Intelismart.
+          </p>
+        `
+      )
+    };
+  }
+
+  return {
+    subject: "We received your Intelismart message",
+    html: emailShell(
+      "We received your message",
+      "Intelismart confirmation",
+      `
+        <p style="margin: 0 0 18px; color: #111827; font-size: 16px; line-height: 1.65;">
+          Hi ${escapeHtml(data.name)}, thanks for contacting Intelismart. Our team has your message and is working to reach back out with the right next step.
+        </p>
+        <p style="margin: 0 0 16px; color: #111827; font-size: 16px; line-height: 1.65;">
+          We will use the contact details you provided and route your request to the right person.
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+          <tr><td style="padding: 0;">${field("Company", data.company)}</td></tr>
+          <tr><td style="padding: 0;">${field("Service", data.service)}</td></tr>
+        </table>
+        <p style="margin: 22px 0 0; color: #52525b; font-size: 14px; line-height: 1.6;">
+          If you need to add anything else, reply to this email and it will go directly to Intelismart.
+        </p>
+      `
+    )
+  };
+}
+
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
   const parsed = contactRequestSchema.safeParse(body);
@@ -156,14 +206,24 @@ export async function POST(request: Request) {
   }
 
   const email = buildEmail(parsed.data);
+  const acknowledgementEmail = buildAcknowledgementEmail(parsed.data);
 
-  const result = await resend.emails.send({
-    from: FROM_EMAIL,
-    to: [TO_EMAIL],
-    replyTo: parsed.data.email,
-    subject: email.subject,
-    html: email.html
-  });
+  const result = await resend.batch.send([
+    {
+      from: FROM_EMAIL,
+      to: [TO_EMAIL],
+      replyTo: parsed.data.email,
+      subject: email.subject,
+      html: email.html
+    },
+    {
+      from: FROM_EMAIL,
+      to: [parsed.data.email],
+      replyTo: TO_EMAIL,
+      subject: acknowledgementEmail.subject,
+      html: acknowledgementEmail.html
+    }
+  ]);
 
   if (result.error) {
     return NextResponse.json(

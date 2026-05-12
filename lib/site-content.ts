@@ -1264,7 +1264,7 @@ export const approach = [
 ];
 
 export const contact = {
-  email: "support@intelismart.com",
+  email: "sales@intelismart.com",
   phone: "1-979-999-1901",
   phoneLink: "+19799991901"
 };
