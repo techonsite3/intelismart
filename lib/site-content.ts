@@ -1195,6 +1195,8 @@ export const industries = [
     icon: "office" as const,
     title: "Offices & Small Businesses",
     text: "Network, Wi-Fi, security, VoIP, and managed support for everyday business operations.",
+    story:
+      "We start by finding where daily work slows down: unreliable Wi-Fi, scattered vendors, unsupported devices, rising internet costs, or security gaps. Then we consolidate the infrastructure into a cleaner operating foundation your team can trust.",
     image: `${serviceImagePath}Managed-IT-Services-2.png`,
     alt: "Modern corporate office interior"
   },
@@ -1203,6 +1205,8 @@ export const industries = [
     icon: "church" as const,
     title: "Churches & Campuses",
     text: "AV, streaming, network, security, and training designed for staff and volunteer teams.",
+    story:
+      "We design around the people actually running the systems: staff, volunteers, media teams, security teams, and leadership. The goal is dependable services, simpler Sunday operations, and technology that supports ministry instead of distracting from it.",
     image: `${serviceImagePath}church-1.png`,
     alt: "Church auditorium with stage lighting and large display"
   },
@@ -1211,6 +1215,8 @@ export const industries = [
     icon: "retail" as const,
     title: "Retail & Restaurants",
     text: "POS connectivity, guest Wi-Fi, CCTV, digital displays, and communications.",
+    story:
+      "We connect the systems that protect revenue at the counter and on the floor: POS, cameras, menu boards, guest Wi-Fi, inventory workflows, and phones. When one location works, we standardize it so every site can run with the same confidence.",
     image: `${serviceImagePath}Digital-Menu-Board-Solutions.png`,
     alt: "Retail interior with customers and displays"
   },
@@ -1219,6 +1225,8 @@ export const industries = [
     icon: "property" as const,
     title: "Warehouses & Industrial",
     text: "Intercom, paging, security, network, and connectivity for facility operations.",
+    story:
+      "We map the facility before recommending equipment: docks, yards, production areas, offices, blind spots, cable paths, and communication dead zones. From there, we build infrastructure that keeps teams coordinated and operations visible.",
     image: `${serviceImagePath}VoIP-Intercom-Solutions-2.png`,
     alt: "Construction worker using field communication equipment"
   },
@@ -1227,6 +1235,8 @@ export const industries = [
     icon: "smb" as const,
     title: "Hotels & Hospitality",
     text: "Guest Wi-Fi, VoIP, surveillance, paging, and back-office infrastructure.",
+    story:
+      "We treat the property as one connected guest experience. Guest Wi-Fi, staff communication, phones, surveillance, access control, and back-office systems all need to work together quietly so service stays smooth.",
     image: `${serviceImagePath}VoIP-Intercom-Solutions-1.png`,
     alt: "Hotel lobby with warm lighting"
   },
@@ -1235,10 +1245,189 @@ export const industries = [
     icon: "healthcare" as const,
     title: "Government & Public Sector",
     text: "Structured communication, secure networks, access control, and high-availability systems.",
+    story:
+      "We help public-facing teams reduce technology uncertainty with documented networks, controlled access, reliable communications, and security systems that are easier to support, audit, and scale.",
     image: `${serviceImagePath}Security-Surveillance-2.png`,
     alt: "Professional public-sector meeting room"
   }
 ];
+
+export type IndustryStory = {
+  slug: string;
+  eyebrow: string;
+  title: string;
+  summary: string;
+  image: string;
+  alt: string;
+  pain: string;
+  help: string;
+  outcomes: string;
+  services: string[];
+};
+
+export const industryStories: IndustryStory[] = [
+  {
+    slug: "healthcare-medical-practices",
+    eyebrow: "Healthcare",
+    title: "Healthcare & Medical Practices",
+    summary:
+      "Clinical teams need networks that protect patient data, keep EHR access stable, and support care without adding friction.",
+    image: "/images/industries/healthcare-medical-practices.jpg",
+    alt: "Medical team reviewing patient information in a clinical environment",
+    pain:
+      "In a medical practice, a slow workstation or exposed endpoint is not just an IT inconvenience. It can interrupt scheduling, billing, imaging access, or patient flow while also creating avoidable HIPAA and ransomware exposure.",
+    help:
+      "Intelismart separates clinical systems from general business traffic, hardens remote access, tightens identity and endpoint protection, and stabilizes the network and Wi-Fi that EHR, billing, phones, and imaging depend on every day.",
+    outcomes:
+      "The practice gets a calmer technology environment: fewer security blind spots, more dependable uptime for patient-critical systems, and infrastructure that is easier to document, support, and prepare for audits.",
+    services: ["Managed IT", "Network Infrastructure", "Security & Surveillance", "System Evaluation"]
+  },
+  {
+    slug: "legal-professional-services",
+    eyebrow: "Professional Services",
+    title: "Legal & Professional Services",
+    summary:
+      "Firms depend on fast document access, secure remote work, and confidentiality that clients can trust.",
+    image: "/images/industries/legal-professional-services.jpg",
+    alt: "Professional services team working in a conference room",
+    pain:
+      "Professional firms live inside documents, deadlines, and client confidentiality. When file access is slow, permissions are loose, or remote work is improvised, the risk shows up as lost time and reduced client confidence.",
+    help:
+      "Intelismart builds secure access around the way attorneys, accountants, consultants, and staff actually work. We support cloud or hybrid document systems, tighten MFA and endpoint monitoring, and make remote access controlled instead of chaotic.",
+    outcomes:
+      "Teams can move faster without loosening control. Documents are easier to reach, sensitive data is better protected, and leadership has clearer visibility into who can access what.",
+    services: ["Managed IT", "Cybersecurity", "Network Infrastructure", "Cloud & Access"]
+  },
+  {
+    slug: "construction-field-operations",
+    eyebrow: "Field Operations",
+    title: "Construction & Field Operations",
+    summary:
+      "Project sites need connectivity and communication that can move as the work moves, from temporary trailers to finished spaces.",
+    image: "/images/industries/construction-field-operations.jpg",
+    alt: "Construction team coordinating work from a job site",
+    pain:
+      "On a job site, connectivity problems become coordination problems. Field teams lose time when trailers, temporary offices, cameras, tablets, and project managers cannot stay connected to the office or each other.",
+    help:
+      "Intelismart deploys mobile and temporary networks, connects sites back to the office through secure access, and sets up field-ready voice, camera, and connectivity equipment that can move as the project changes.",
+    outcomes:
+      "The office gets better visibility into the field, crews communicate with fewer delays, and the same infrastructure approach can scale from one project to the next instead of being rebuilt from scratch.",
+    services: ["Fiber & Dedicated Internet", "Network Infrastructure", "VoIP & Intercom", "Security & Surveillance"]
+  },
+  {
+    slug: "manufacturing-industrial",
+    eyebrow: "Industrial",
+    title: "Manufacturing & Industrial",
+    summary:
+      "Industrial environments need uptime, visibility, and separation between business IT and operational systems.",
+    image: "/images/industries/manufacturing-industrial.jpg",
+    alt: "Industrial facility with production equipment and technical systems",
+    pain:
+      "Industrial environments often run on a mix of legacy equipment, business systems, cameras, phones, and operational technology. When everything sits on the same fragile network, a small issue can become downtime or production loss.",
+    help:
+      "Intelismart segments IT and OT systems, adds monitoring and alerting, improves network paths, and plans upgrades around uptime so the facility can modernize without unnecessary disruption to production.",
+    outcomes:
+      "Operations become more visible and resilient. Leadership can see where risk lives, support teams can respond faster, and production systems are better protected from everyday IT failures and cyber exposure.",
+    services: ["Network Infrastructure", "Datacenter Support", "Security & Surveillance", "System Evaluation"]
+  },
+  {
+    slug: "hospitality-hotels",
+    eyebrow: "Hospitality",
+    title: "Hotels & Hospitality",
+    summary:
+      "Guest experience depends on invisible infrastructure: Wi-Fi that works, phones that route correctly, and security systems that stay online.",
+    image: "/images/industries/hospitality-hotels.jpg",
+    alt: "Hospitality environment with guest-facing technology infrastructure",
+    pain:
+      "In hospitality, guests rarely notice the network until it fails. Poor Wi-Fi, disconnected phone systems, weak camera coverage, or back-office interruptions quickly become service issues for staff and reputation issues for ownership.",
+    help:
+      "Intelismart treats the property as one connected environment. We tune high-density Wi-Fi, modernize voice and intercom workflows, and connect surveillance, access control, staff systems, and back-office infrastructure into a more reliable foundation.",
+    outcomes:
+      "Guests experience fewer technology frustrations, staff communicate more clearly, and ownership gets stronger visibility across rooms, common areas, service zones, and operations.",
+    services: ["Network Infrastructure", "VoIP & Intercom", "Security & Surveillance", "Managed IT"]
+  },
+  {
+    slug: "retail-multi-location",
+    eyebrow: "Retail",
+    title: "Retail & Multi-Location Businesses",
+    summary:
+      "Stores need consistent systems across locations so POS, inventory, guest Wi-Fi, cameras, and displays keep revenue moving.",
+    image: "/images/industries/retail-multi-location.jpg",
+    alt: "Retail environment with digital systems and customer-facing displays",
+    pain:
+      "For retail and restaurant teams, technology failures show up immediately in revenue. POS downtime, menu board issues, camera gaps, guest Wi-Fi complaints, or inconsistent store setups make every location harder to manage.",
+    help:
+      "Intelismart standardizes the network, Wi-Fi, POS connectivity, surveillance, displays, and voice systems so each site follows a repeatable model. Multi-location monitoring then gives owners and support teams one clearer view.",
+    outcomes:
+      "Stores become easier to open, manage, and support. Registers stay connected, customer-facing systems are more consistent, and leaders can scale operations without reinventing the technology stack at every location.",
+    services: ["Digital Menu Boards", "Network Infrastructure", "Security & Surveillance", "Managed IT"]
+  },
+  {
+    slug: "churches-nonprofits",
+    eyebrow: "Community",
+    title: "Churches & Nonprofits",
+    summary:
+      "Mission-driven teams need reliable services, broadcasts, networks, and AV systems that volunteers can operate confidently.",
+    image: "/images/industries/churches-nonprofits.jpg",
+    alt: "Church auditorium with production and worship technology",
+    pain:
+      "Churches and nonprofits often rely on volunteers to run systems that were built a piece at a time. Streaming, AV, Wi-Fi, cameras, and security may all work separately until a service, event, or broadcast puts pressure on them.",
+    help:
+      "Intelismart designs around the actual team: staff, volunteers, media operators, facilities teams, and leadership. We tune AV, streaming, network, Wi-Fi, and security together, then train people so the system is easier to operate.",
+    outcomes:
+      "Services and events run with fewer surprises, volunteers feel more confident, and limited budgets go toward infrastructure that supports the mission instead of adding complexity.",
+    services: ["Audio Visual & Media", "Network Infrastructure", "Training & Enablement", "Security & Surveillance"]
+  },
+  {
+    slug: "small-medium-businesses",
+    eyebrow: "Business Operations",
+    title: "Small & Medium Businesses",
+    summary:
+      "Growing businesses need a practical IT foundation that reduces waste, closes security gaps, and scales without surprise costs.",
+    image: "/images/industries/small-medium-businesses.jpg",
+    alt: "Small business team working in a modern office",
+    pain:
+      "Small and medium businesses often inherit a stack of tools, vendors, internet plans, old hardware, and quick fixes. Costs rise, accountability gets blurry, and security gaps remain because no one is looking at the full system.",
+    help:
+      "Intelismart starts with an assessment, then consolidates what can be simplified. We align managed support, internet, phones, cloud tools, devices, security, and monitoring into one practical operating plan.",
+    outcomes:
+      "The business gets clearer accountability, more predictable performance, and a foundation that can scale. In many environments, consolidation also exposes unnecessary spend that can be reduced or redirected.",
+    services: ["System Evaluation", "Managed IT", "VoIP & Intercom", "Cybersecurity"]
+  }
+];
+
+export const buildoutStory = {
+  eyebrow: "Build-out & Renovation",
+  title: "A building is not truly finished until it is operational.",
+  summary:
+    "Intelismart partners with general contractors and owners early in the build-out process so low-voltage infrastructure is designed before walls close and teams move in.",
+  image: "/images/industries/buildout-low-voltage.jpg",
+  alt: "Commercial build-out team reviewing site infrastructure plans",
+  problems: [
+    "IT becomes an afterthought and causes rework, delays, or cost overruns",
+    "Poor cable planning creates weak coverage, bottlenecks, and future limitations",
+    "General contractors, electricians, IT, and specialty vendors work in silos"
+  ],
+  difference: [
+    "Pre-wire planning aligned with operations, not only blueprint compliance",
+    "Coordination with general contractors, electricians, and other trades",
+    "Clean, labeled, documented installs for long-term maintainability",
+    "Scalable design for future expansion instead of day-one-only needs"
+  ],
+  outcomes: [
+    "Sites are operational on opening day",
+    "No retrofitting or tearing into finished walls",
+    "Optimized network performance from day one",
+    "Lower long-term infrastructure cost"
+  ],
+  idealProjects: [
+    "Retail store buildouts",
+    "Offices and commercial spaces",
+    "Restaurants and hospitality venues",
+    "Warehouses and industrial sites",
+    "Churches and multi-use facilities"
+  ]
+};
 
 export const approach = [
   {
