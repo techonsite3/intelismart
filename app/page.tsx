@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowRight, Calendar, Check, Clock, Star } from "lucide-react";
+import { ArrowRight, Calendar, Check, Clock } from "lucide-react";
+import { GoogleReviewsSection } from "@/components/google-reviews-section";
 import { HeroVideo } from "@/components/hero-video";
 import { LeadCapture } from "@/components/lead-capture";
 import { SiteFooter } from "@/components/site-footer";
@@ -105,9 +106,6 @@ const compassServiceBreakdown = [
 });
 
 const evaluationService = services.find((service) => service.slug === "system-evaluation");
-const googleReviewsUrl =
-  "https://www.google.com/search?q=intelismart&oq=intelismart&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyEQgDEC4YChgLGK8BGMcBGIAEMgsIBBAAGAoYCxiABDILCAUQABgKGAsYgAQyBggGEEUYPDIGCAcQRRg80gEIODU0M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x8640d98e3aed396d:0xd67237a7f93a6fe9,1,,,,";
-const googleReviewStars = Array.from({ length: 5 }, (_, index) => index);
 
 export default function Home() {
   return (
@@ -132,35 +130,9 @@ export default function Home() {
             Most systems we evaluate are overpaying or underperforming. We fix both.
           </p>
           <LeadCapture variant="hero" />
-          <a
-            className="hero-google-review-badge"
-            href={googleReviewsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Read Intelismart Google customer reviews"
-          >
-            <span className="google-review-emblem" aria-hidden="true">
-              <Check size={42} strokeWidth={3.2} />
-            </span>
-            <span className="google-review-copy">
-              <span className="google-word" aria-hidden="true">
-                <span>G</span>
-                <span>o</span>
-                <span>o</span>
-                <span>g</span>
-                <span>l</span>
-                <span>e</span>
-              </span>
-              <strong>Customer Reviews</strong>
-              <span className="hero-google-stars" aria-label="5.0 Google rating">
-                {googleReviewStars.map((star) => (
-                  <Star key={star} size={19} />
-                ))}
-              </span>
-            </span>
-          </a>
         </div>
       </section>
+      <GoogleReviewsSection />
 
       <section className="home-split-section">
         <div className="home-section-copy">
