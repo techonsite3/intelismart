@@ -27,6 +27,12 @@ const contactSchema = z.object({
   phone: phoneSchema.optional().or(z.literal("")),
   email: z.string().trim().email("Enter a valid email address."),
   service: z.string().trim().min(1, "Select a service."),
+  businessType: z.string().trim().min(1, "Select a business type."),
+  locations: z.string().trim().min(1, "Select the number of locations."),
+  timeline: z.string().trim().min(1, "Select a timeline."),
+  budget: z.string().trim().min(1, "Select a budget range."),
+  preferredCallbackTime: z.string().trim().max(160).optional().or(z.literal("")),
+  telecomBillReview: z.string().trim().min(1, "Select a telecom bill review option."),
   currentCustomer: z.string().trim().min(1, "Select one option."),
   message: z.string().trim().min(10, "Add a short message.").max(2400)
 });
@@ -123,6 +129,12 @@ function buildEmail(data: ContactRequest) {
           <tr><td style="padding: 0;">${field("Email", data.email)}</td></tr>
           <tr><td style="padding: 0;">${field("Phone", data.phone)}</td></tr>
           <tr><td style="padding: 0;">${field("Service", data.service)}</td></tr>
+          <tr><td style="padding: 0;">${field("Business Type", data.businessType)}</td></tr>
+          <tr><td style="padding: 0;">${field("Locations", data.locations)}</td></tr>
+          <tr><td style="padding: 0;">${field("Timeline", data.timeline)}</td></tr>
+          <tr><td style="padding: 0;">${field("Budget Range", data.budget)}</td></tr>
+          <tr><td style="padding: 0;">${field("Preferred Callback Time", data.preferredCallbackTime)}</td></tr>
+          <tr><td style="padding: 0;">${field("Telecom Bill Review", data.telecomBillReview)}</td></tr>
           <tr><td style="padding: 0;">${field("Current Customer", data.currentCustomer)}</td></tr>
         </table>
         <div style="margin-top: 26px; border-radius: 14px; background: #f9fafb; padding: 20px;">
@@ -175,6 +187,9 @@ function buildAcknowledgementEmail(data: ContactRequest) {
         <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
           <tr><td style="padding: 0;">${field("Company", data.company)}</td></tr>
           <tr><td style="padding: 0;">${field("Service", data.service)}</td></tr>
+          <tr><td style="padding: 0;">${field("Business Type", data.businessType)}</td></tr>
+          <tr><td style="padding: 0;">${field("Locations", data.locations)}</td></tr>
+          <tr><td style="padding: 0;">${field("Timeline", data.timeline)}</td></tr>
         </table>
         <p style="margin: 22px 0 0; color: #52525b; font-size: 14px; line-height: 1.6;">
           If you need to add anything else, reply to this email and it will go directly to Intelismart.

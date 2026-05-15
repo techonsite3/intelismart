@@ -23,7 +23,8 @@ export function MobileNav({ items, trigger }: MobileNavProps) {
   const groupedItems = [
     { label: "About", items: navGroups.about },
     { label: "Industries", items: navGroups.industries },
-    { label: "Services", items: navGroups.services }
+    { label: "Services", items: navGroups.services },
+    { label: "Service Areas", items: navGroups.serviceAreas }
   ];
 
   const searchResults = useMemo(() => {

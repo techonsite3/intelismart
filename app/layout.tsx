@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = "https://intelismart.com";
-const title = "Intelismart | Smart Technology. Reliable Infrastructure.";
+const title = "Intelismart | Integrated Infrastructure Partner in Houston & North America";
 const description =
-  "Intelismart designs, deploys, and supports secure technology infrastructure including managed IT, network infrastructure, surveillance, fiber connectivity, and AV systems.";
+  "Intelismart designs, deploys, and supports integrated technology infrastructure for Houston, Katy, Texas, and North America, including managed IT, networks, VoIP, CCTV, fiber, AV, and multi-site rollouts.";
 const previewImage = {
   url: "/og-image.jpg",
   width: 1200,

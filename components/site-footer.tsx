@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { CircleArrowOutUpRight, Mail, MapPin, Phone } from "lucide-react";
-import { contact, services } from "@/lib/site-content";
+import { contact, serviceAreaPages, services } from "@/lib/site-content";
 
 const footerNav = [
   { label: "Home", href: "/" },
@@ -8,6 +8,7 @@ const footerNav = [
   { label: "Our Approach", href: "/about" },
   { label: "Industries", href: "/industries" },
   { label: "Services", href: "/services" },
+  { label: "Service Areas", href: "/service-areas" },
   { label: "Contact", href: "/contact" }
 ];
 
@@ -50,6 +51,18 @@ export function SiteFooter() {
                 {service.title}
               </a>
             ))}
+          </nav>
+        </div>
+
+        <div className="footer-col">
+          <span className="footer-col-heading">Service Areas</span>
+          <nav aria-label="Footer service area navigation">
+            {serviceAreaPages.slice(0, 6).map((page) => (
+              <a href={`/service-areas/${page.slug}`} key={page.slug}>
+                {page.eyebrow}
+              </a>
+            ))}
+            <a href="/service-areas">All Service Areas</a>
           </nav>
         </div>
 

@@ -12,6 +12,7 @@ const mobileItems = [
   { label: "Our Approach", href: "/about" },
   { label: "Industries", href: "/industries" },
   { label: "Services", href: "/services" },
+  { label: "Service Areas", href: "/service-areas" },
   { label: "Contact", href: "/contact" }
 ];
 
@@ -47,6 +48,7 @@ export function SiteHeader() {
             <Dropdown label="About" items={navGroups.about} />
             <Dropdown label="Industries" items={navGroups.industries} />
             <Dropdown label="Services" items={navGroups.services} />
+            <Dropdown label="Service Areas" items={navGroups.serviceAreas} />
           </nav>
 
           <a className="header-phone" href={`tel:${contact.phoneLink}`}>

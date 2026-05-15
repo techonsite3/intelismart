@@ -2476,7 +2476,7 @@ button:disabled {
   margin: 0 auto;
   padding: 72px 24px 56px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 1.35fr repeat(4, 1fr);
   gap: 48px;
 }
 
@@ -3316,6 +3316,7 @@ button:disabled {
 
 .service-page-image img,
 .service-detail-hero img,
+.service-area-hero img,
 .industry-page-card img {
   object-fit: cover;
 }
@@ -3337,14 +3338,16 @@ button:disabled {
   transform: translateX(2px);
 }
 
-.service-detail-hero {
+.service-detail-hero,
+.service-area-hero {
   position: relative;
   min-height: 88svh;
   overflow: hidden;
   isolation: isolate;
 }
 
-.service-detail-hero .media-scrim {
+.service-detail-hero .media-scrim,
+.service-area-hero .media-scrim {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.32) 55%, rgba(0, 0, 0, 0.22)),
     linear-gradient(0deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.16) 52%, rgba(0, 0, 0, 0.32));
@@ -3405,9 +3408,116 @@ button:disabled {
 .service-why-section,
 .service-addons-section,
 .service-faq-section,
-.service-final-cta {
+.service-final-cta,
+.service-area-intro,
+.service-area-overview,
+.service-area-detail-grid,
+.service-area-related {
   padding: 88px var(--content-gutter);
   background: var(--black);
+}
+
+.service-area-intro,
+.service-area-overview,
+.service-area-related {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 70px;
+  border-top: 1px solid var(--line-dark);
+}
+
+.service-area-intro p:not(.label),
+.service-area-overview p:not(.label),
+.service-final-cta p:not(.label) {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.62;
+}
+
+.service-area-signal-list,
+.service-area-detail-grid article {
+  display: grid;
+  gap: 12px;
+}
+
+.service-area-signal-list div,
+.service-area-detail-grid article div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 0;
+}
+
+.service-area-signal-list svg,
+.service-area-detail-grid svg {
+  margin-top: 0.22em;
+  color: var(--accent-strong);
+}
+
+.service-area-signal-list p,
+.service-area-detail-grid p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.55;
+}
+
+.service-area-keywords,
+.service-area-service-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+}
+
+.service-area-keywords span,
+.service-area-service-list span,
+.service-area-service-list a {
+  border: 1px solid rgba(241, 135, 59, 0.34);
+  border-radius: 999px;
+  background: rgba(241, 135, 59, 0.08);
+  padding: 10px 13px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.service-area-service-list a:hover {
+  border-color: rgba(241, 135, 59, 0.72);
+  color: var(--white);
+  background: rgba(241, 135, 59, 0.14);
+}
+
+.service-area-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.service-area-detail-grid article {
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    var(--panel);
+  padding: 26px;
+}
+
+.service-area-contact-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.service-area-contact-link svg {
+  color: var(--accent-strong);
 }
 
 .service-gallery-section {
@@ -4124,7 +4234,14 @@ button:disabled {
   .service-workflow-section,
   .service-why-section,
   .service-addons-section,
-  .service-faq-section {
+  .service-faq-section,
+  .service-area-intro,
+  .service-area-overview,
+  .service-area-related {
+    grid-template-columns: 1fr;
+  }
+
+  .service-area-detail-grid {
     grid-template-columns: 1fr;
   }
 
@@ -4524,6 +4641,10 @@ button:disabled {
   .service-why-section,
   .service-addons-section,
   .service-faq-section,
+  .service-area-intro,
+  .service-area-overview,
+  .service-area-detail-grid,
+  .service-area-related,
   .service-final-cta {
     padding: 70px 20px;
   }

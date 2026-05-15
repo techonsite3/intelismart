@@ -1458,6 +1458,449 @@ export const contact = {
   phoneLink: "+19799991901"
 };
 
+export type ServiceAreaPage = {
+  slug: string;
+  eyebrow: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  region: string;
+  focus: string;
+  summary: string;
+  image: string;
+  alt: string;
+  keywords: string[];
+  problems: string[];
+  solutions: string[];
+  outcomes: string[];
+  relatedServices: string[];
+  cta: string;
+  expansionNote: string;
+};
+
+export const serviceAreaPages: ServiceAreaPage[] = [
+  {
+    slug: "houston-managed-it-services",
+    eyebrow: "Houston Managed IT",
+    title: "Houston Managed IT Services for Infrastructure That Has to Stay Online",
+    metaTitle: "Houston Managed IT Services | Intelismart",
+    metaDescription:
+      "Managed IT services in Houston for businesses that need monitoring, support, network reliability, security updates, and infrastructure lifecycle management.",
+    region: "Houston, Texas",
+    focus: "Managed IT, monitoring, maintenance, user support, and infrastructure lifecycle management",
+    summary:
+      "Intelismart supports Houston organizations that need practical managed IT, stable infrastructure, and fast response without treating support as an afterthought.",
+    image: `${serviceImagePath}Managed-IT-Services-1.png`,
+    alt: "Managed IT technician reviewing infrastructure systems",
+    keywords: [
+      "Houston managed IT services",
+      "Houston IT support",
+      "managed monitoring Houston",
+      "business IT support Houston"
+    ],
+    problems: [
+      "Reactive support that only appears after systems fail",
+      "Unclear ownership across vendors, users, network, security, and telecom",
+      "Aging hardware, unsupported devices, and weak lifecycle planning",
+      "Security updates and monitoring that are inconsistent or undocumented"
+    ],
+    solutions: [
+      "24/7 monitoring and proactive maintenance for critical infrastructure",
+      "Helpdesk and escalation workflows that connect users to the right technical support",
+      "Patch, device, firewall, endpoint, and network health reviews",
+      "Quarterly infrastructure reviews to reduce waste and plan upgrades before failure"
+    ],
+    outcomes: [
+      "Fewer recurring incidents",
+      "Clearer accountability for business systems",
+      "More predictable support and lifecycle planning",
+      "A stronger base for security, communications, and growth"
+    ],
+    relatedServices: ["Managed IT Services", "Network Infrastructure", "Security & Surveillance", "System Evaluation"],
+    cta: "Request a Houston IT system evaluation",
+    expansionNote:
+      "Built from Houston operations, this support model can extend to multi-site teams across Texas, the United States, and Canada."
+  },
+  {
+    slug: "houston-structured-cabling",
+    eyebrow: "Houston Structured Cabling",
+    title: "Houston Structured Cabling for Clean, Documented Network Infrastructure",
+    metaTitle: "Houston Structured Cabling | Network Cabling | Intelismart",
+    metaDescription:
+      "Structured cabling in Houston for offices, churches, restaurants, warehouses, and facilities that need clean low-voltage infrastructure.",
+    region: "Houston, Texas",
+    focus: "Structured cabling, low-voltage infrastructure, rack cleanup, labeling, and network readiness",
+    summary:
+      "Intelismart plans and installs cabling that supports Wi-Fi, cameras, VoIP, AV, access control, intercom, and business systems as one maintainable infrastructure layer.",
+    image: `${serviceImagePath}Datacenter-Support-Services-3.png`,
+    alt: "Structured network cabling and switch ports",
+    keywords: [
+      "Houston structured cabling",
+      "Houston network cabling",
+      "low voltage cabling Houston",
+      "commercial cabling Houston"
+    ],
+    problems: [
+      "Unlabeled cable runs that slow down troubleshooting",
+      "Poor rack organization that creates service and upgrade delays",
+      "Coverage gaps caused by cabling decisions made after walls close",
+      "Separate vendors wiring cameras, phones, AV, and network without a unified plan"
+    ],
+    solutions: [
+      "Low-voltage planning before build-outs, remodels, and tenant move-ins",
+      "Cable pulls, terminations, labeling, patch panels, racks, and documentation",
+      "Network-ready infrastructure for Wi-Fi, VoIP, CCTV, AV, access control, and displays",
+      "Coordination with owners, general contractors, electricians, and specialty vendors"
+    ],
+    outcomes: [
+      "Cleaner infrastructure from day one",
+      "Faster troubleshooting and future upgrades",
+      "Better network, camera, AV, and communication performance",
+      "Less rework during commercial build-outs"
+    ],
+    relatedServices: ["Network Infrastructure", "Security & Surveillance", "Audio Visual & Media Systems", "VoIP & Intercom Solutions"],
+    cta: "Plan a Houston cabling project",
+    expansionNote:
+      "The same cabling standards can be replicated across Texas and North American locations for multi-site consistency."
+  },
+  {
+    slug: "houston-voip-systems",
+    eyebrow: "Houston VoIP",
+    title: "Houston VoIP Systems for Offices, Facilities, Hotels, and Multi-Site Teams",
+    metaTitle: "Houston VoIP Systems | Business Phone & Intercom | Intelismart",
+    metaDescription:
+      "Houston VoIP systems, hosted phone systems, on-premise PBX, paging, intercom, and call routing designed around reliable network infrastructure.",
+    region: "Houston, Texas",
+    focus: "Hosted VoIP, on-premise voice, hybrid phone systems, paging, intercom, and call quality",
+    summary:
+      "Intelismart designs voice and intercom systems around the network, facility layout, call flow, and support needs that keep teams reachable.",
+    image: `${serviceImagePath}VoIP-Intercom-Solutions-1.png`,
+    alt: "Desk phone and headset on an office desk",
+    keywords: [
+      "Houston VoIP systems",
+      "Houston business phone systems",
+      "Houston intercom systems",
+      "hosted VoIP Houston"
+    ],
+    problems: [
+      "Dropped calls, poor call quality, or unclear call routing",
+      "Phone systems that do not support mobile, remote, or multi-site work",
+      "Paging and intercom coverage that fails in warehouses, hotels, and facilities",
+      "Telecom costs that remain high because legacy lines were never reviewed"
+    ],
+    solutions: [
+      "Hosted, on-premise, or hybrid VoIP architecture matched to the organization",
+      "QoS, VLANs, failover, and network tuning for dependable voice quality",
+      "Auto-attendants, call queues, ring groups, E911 support, and voicemail workflows",
+      "Intercom, paging, and door communication systems for facilities and campuses"
+    ],
+    outcomes: [
+      "Clearer calls and more reliable routing",
+      "Lower telecom waste where services can be consolidated",
+      "Better communication between offices, field teams, and facilities",
+      "A voice system that can scale across locations"
+    ],
+    relatedServices: ["VoIP & Intercom Solutions", "Network Infrastructure", "Fiber Optics & Dedicated Internet", "System Evaluation"],
+    cta: "Evaluate a Houston VoIP system",
+    expansionNote:
+      "Voice standards can be rolled out to additional United States and Canada locations without redesigning every site from scratch."
+  },
+  {
+    slug: "houston-cctv-installation",
+    eyebrow: "Houston CCTV",
+    title: "Houston CCTV Installation and Surveillance Systems Built on Reliable Infrastructure",
+    metaTitle: "Houston CCTV Installation | Security Cameras | Intelismart",
+    metaDescription:
+      "Houston CCTV installation, security cameras, surveillance network design, access control readiness, and monitoring support for commercial facilities.",
+    region: "Houston, Texas",
+    focus: "CCTV, surveillance cameras, camera networking, access control readiness, and facility visibility",
+    summary:
+      "Intelismart installs surveillance systems that are planned with the network, storage, coverage, remote access, and long-term support model in mind.",
+    image: `${serviceImagePath}Security-Surveillance-1.png`,
+    alt: "Security camera monitoring screens in a facility",
+    keywords: [
+      "Houston CCTV installation",
+      "Houston security camera installation",
+      "commercial surveillance Houston",
+      "camera systems Houston"
+    ],
+    problems: [
+      "Blind spots around entrances, yards, registers, docks, or public areas",
+      "Camera systems installed without enough network or storage planning",
+      "Remote access that is unreliable or insecure",
+      "Disconnected security, network, and facility vendors"
+    ],
+    solutions: [
+      "Camera coverage planning by facility zone, risk area, and operating workflow",
+      "Network, PoE, storage, retention, and remote-viewing design",
+      "Clean installation, cable management, labeling, and documentation",
+      "Integration planning for access control, intercom, alarms, and monitoring"
+    ],
+    outcomes: [
+      "Better visibility across high-risk areas",
+      "More reliable camera uptime and playback",
+      "Cleaner support path when footage or remote access matters",
+      "A security layer that works with the rest of the infrastructure"
+    ],
+    relatedServices: ["Security & Surveillance", "Network Infrastructure", "VoIP & Intercom Solutions", "Managed IT Services"],
+    cta: "Request a Houston CCTV assessment",
+    expansionNote:
+      "Coverage standards and camera architectures can be repeated for regional, national, and Canada-facing multi-site operations."
+  },
+  {
+    slug: "houston-fiber-installation",
+    eyebrow: "Houston Fiber",
+    title: "Houston Fiber Installation and Dedicated Internet Planning",
+    metaTitle: "Houston Fiber Installation & Dedicated Internet | Intelismart",
+    metaDescription:
+      "Fiber installation and dedicated internet planning in Houston for businesses that need stable bandwidth, failover, circuit design, and network performance.",
+    region: "Houston, Texas",
+    focus: "Fiber optics, dedicated internet access, ISP review, failover, and bandwidth planning",
+    summary:
+      "Intelismart helps Houston organizations evaluate internet costs, circuit design, fiber readiness, and network architecture so connectivity supports the whole operation.",
+    image: `${serviceImagePath}Fiber-Optics-Dedicated Internet.png`,
+    alt: "Fiber optic cabling and network equipment",
+    keywords: [
+      "Houston fiber installation",
+      "Houston dedicated internet",
+      "fiber optics Houston",
+      "business internet Houston"
+    ],
+    problems: [
+      "Multiple internet circuits with unclear purpose or high monthly cost",
+      "No failover plan for phones, POS, security, Wi-Fi, or business systems",
+      "Bandwidth upgrades made without network design improvements",
+      "Poor demarc, rack, or cabling conditions that limit fiber value"
+    ],
+    solutions: [
+      "Internet bill and circuit review before recommending new spend",
+      "Fiber readiness, cabling, firewall, switch, and failover planning",
+      "Dedicated internet and redundant ISP architecture for critical environments",
+      "Performance validation for Wi-Fi, VoIP, cameras, AV, and cloud applications"
+    ],
+    outcomes: [
+      "More reliable connectivity",
+      "Lower waste from redundant or overpriced services",
+      "Better uptime for revenue and safety systems",
+      "A clearer roadmap for growth and multi-site connectivity"
+    ],
+    relatedServices: ["Fiber Optics & Dedicated Internet", "Network Infrastructure", "VoIP & Intercom Solutions", "System Evaluation"],
+    cta: "Review a Houston internet or fiber setup",
+    expansionNote:
+      "Circuit and failover standards can support Texas, United States, and Canada locations as the footprint grows."
+  },
+  {
+    slug: "houston-church-av-systems",
+    eyebrow: "Houston Church AV",
+    title: "Houston Church AV Systems for Worship, Streaming, Network, and Volunteer Teams",
+    metaTitle: "Houston Church AV Systems | Worship AV & Streaming | Intelismart",
+    metaDescription:
+      "Houston church AV systems, worship audio, video, streaming, network, security, and training designed for staff and volunteer teams.",
+    region: "Houston, Texas",
+    focus: "Church AV, streaming, network, volunteer training, cameras, and campus infrastructure",
+    summary:
+      "Intelismart designs church and campus systems around real services, volunteer workflows, streaming reliability, room coverage, and long-term support.",
+    image: `${serviceImagePath}church-1.png`,
+    alt: "Church auditorium with stage lighting and large display",
+    keywords: [
+      "Houston church AV systems",
+      "Houston worship AV",
+      "church streaming Houston",
+      "church audio visual Houston"
+    ],
+    problems: [
+      "AV, streaming, Wi-Fi, cameras, and security systems built separately over time",
+      "Volunteers who are expected to operate complex systems without enough training",
+      "Audio coverage, gain staging, video routing, or stream reliability issues",
+      "No single partner accountable for infrastructure, AV, and support"
+    ],
+    solutions: [
+      "Audio, video, streaming, lighting, network, and security planning as one environment",
+      "System tuning, commissioning, presets, rack cleanup, and cable documentation",
+      "Volunteer and staff training based on the actual installed system",
+      "Support planning for Sunday services, events, and campus growth"
+    ],
+    outcomes: [
+      "More dependable worship services and events",
+      "Stronger livestream and media workflows",
+      "Volunteers who can operate systems with confidence",
+      "Infrastructure that can support future rooms, buildings, and campuses"
+    ],
+    relatedServices: ["Audio Visual & Media Systems", "Network Infrastructure", "Training & Enablement", "Security & Surveillance"],
+    cta: "Schedule a church media and infrastructure assessment",
+    expansionNote:
+      "The same church AV and infrastructure model can support campuses across Texas, the United States, and Canada."
+  },
+  {
+    slug: "houston-datacenter-support",
+    eyebrow: "Houston Datacenter Support",
+    title: "Houston Datacenter Support for Hands-On Infrastructure Work",
+    metaTitle: "Houston Datacenter Support Services | Intelismart",
+    metaDescription:
+      "Datacenter support in Houston for rack, stack, cabling, remote hands, equipment replacement, documentation, and infrastructure coordination.",
+    region: "Houston, Texas",
+    focus: "Remote hands, rack and stack, cabling, documentation, hardware swaps, and infrastructure support",
+    summary:
+      "Intelismart extends technical teams into the datacenter with hands-on infrastructure support, documentation, and clean execution.",
+    image: `${serviceImagePath}Datacenter-Support-Services-1.png`,
+    alt: "Technician working inside a datacenter row",
+    keywords: [
+      "Houston datacenter support",
+      "Houston remote hands",
+      "Houston rack and stack",
+      "datacenter cabling Houston"
+    ],
+    problems: [
+      "Remote teams that need trusted hands on site",
+      "Messy racks, unclear labeling, and difficult change windows",
+      "Hardware replacements or cabling changes that need clean documentation",
+      "Support gaps between internal IT, vendors, and facility staff"
+    ],
+    solutions: [
+      "Rack, stack, cabling, patching, labeling, and equipment replacement",
+      "Remote hands coordination for vendors and internal IT teams",
+      "Infrastructure documentation and photo-based closeout where appropriate",
+      "Support for refreshes, relocations, expansions, and emergency work"
+    ],
+    outcomes: [
+      "Cleaner execution inside controlled environments",
+      "Reduced travel and coordination burden for internal teams",
+      "Better documentation after changes",
+      "More dependable infrastructure support during critical windows"
+    ],
+    relatedServices: ["Datacenter Support Services", "Network Infrastructure", "Fiber Optics & Dedicated Internet", "Managed IT Services"],
+    cta: "Coordinate Houston datacenter support",
+    expansionNote:
+      "Datacenter support workflows can extend to distributed infrastructure sites across North America."
+  },
+  {
+    slug: "katy-tx-network-infrastructure",
+    eyebrow: "Katy Network Infrastructure",
+    title: "Katy TX Network Infrastructure for Offices, Retail, Churches, and Facilities",
+    metaTitle: "Katy TX Network Infrastructure | Intelismart",
+    metaDescription:
+      "Network infrastructure in Katy TX for businesses, churches, retail, restaurants, offices, and facilities that need Wi-Fi, cabling, firewall, and support.",
+    region: "Katy, Texas",
+    focus: "Network design, Wi-Fi, firewall, cabling, segmentation, and infrastructure support",
+    summary:
+      "Intelismart helps Katy-area organizations replace fragmented technology with a stable network foundation for business systems, phones, cameras, AV, and operations.",
+    image: `${serviceImagePath}Datacenter-Support-Services-2.png`,
+    alt: "Network infrastructure rack with switches and cabling",
+    keywords: [
+      "Katy TX network infrastructure",
+      "Katy business Wi-Fi",
+      "Katy network support",
+      "Katy structured cabling"
+    ],
+    problems: [
+      "Wi-Fi coverage gaps in offices, restaurants, campuses, and warehouses",
+      "Firewalls, switches, cameras, phones, and access points managed in silos",
+      "Unplanned expansions that leave the network difficult to support",
+      "Limited visibility into performance, risk, and cost"
+    ],
+    solutions: [
+      "Network assessments, topology review, and upgrade planning",
+      "Firewall, switching, Wi-Fi, cabling, and segmentation design",
+      "Infrastructure planning for phones, cameras, AV, POS, cloud apps, and guest networks",
+      "Ongoing monitoring, documentation, and lifecycle recommendations"
+    ],
+    outcomes: [
+      "Better coverage and performance",
+      "Reduced downtime and vendor confusion",
+      "Cleaner support and expansion path",
+      "A more dependable network for day-to-day operations"
+    ],
+    relatedServices: ["Network Infrastructure", "Managed IT Services", "Security & Surveillance", "VoIP & Intercom Solutions"],
+    cta: "Request a Katy network assessment",
+    expansionNote:
+      "Katy and Houston projects can become the standard for broader Texas and North America rollouts."
+  },
+  {
+    slug: "texas-multi-site-it-rollouts",
+    eyebrow: "Texas Multi-Site IT",
+    title: "Texas Multi-Site IT Rollouts for Consistent Infrastructure Across Locations",
+    metaTitle: "Texas Multi-Site IT Rollouts | Intelismart",
+    metaDescription:
+      "Texas multi-site IT rollouts for restaurants, churches, clinics, retail, offices, and facilities that need standardized networks, phones, cameras, Wi-Fi, and support.",
+    region: "Texas",
+    focus: "Multi-site standardization, repeatable deployments, monitoring, documentation, and support",
+    summary:
+      "Intelismart helps operators create a repeatable technology standard so every site is easier to open, manage, secure, and support.",
+    image: `${serviceImagePath}Managed-IT-Services-2.png`,
+    alt: "Modern office environment with managed technology systems",
+    keywords: [
+      "Texas multi-site IT rollouts",
+      "Texas network deployment",
+      "multi location IT support Texas",
+      "Texas franchise technology rollout"
+    ],
+    problems: [
+      "Every location built differently with different vendors and equipment",
+      "Inconsistent Wi-Fi, camera, phone, POS, and support experiences",
+      "No repeatable standard for opening new sites",
+      "Leadership lacks clear visibility across locations"
+    ],
+    solutions: [
+      "Standardized network, Wi-Fi, firewall, voice, camera, and display templates",
+      "Site surveys, rollout checklists, deployment documentation, and closeout reporting",
+      "Centralized monitoring and support workflows",
+      "Phased upgrades for existing locations without disrupting operations"
+    ],
+    outcomes: [
+      "Faster, cleaner site openings",
+      "Lower support complexity across locations",
+      "More consistent customer and staff experience",
+      "A scalable standard for future growth"
+    ],
+    relatedServices: ["Managed IT Services", "Network Infrastructure", "VoIP & Intercom Solutions", "Security & Surveillance"],
+    cta: "Plan a Texas multi-site rollout",
+    expansionNote:
+      "The same standards can be adapted for United States and Canada rollouts as Intelismart expands across North America."
+  },
+  {
+    slug: "north-america-technology-rollouts",
+    eyebrow: "North America Rollouts",
+    title: "North America Technology Rollouts for Standardized Infrastructure Across the U.S. and Canada",
+    metaTitle: "North America Technology Rollouts | U.S. & Canada | Intelismart",
+    metaDescription:
+      "Technology infrastructure rollouts across North America for organizations expanding across the United States and Canada with standardized networks, voice, security, AV, and support.",
+    region: "United States and Canada",
+    focus: "Cross-border standards, repeatable infrastructure, remote coordination, vendor alignment, and support models",
+    summary:
+      "Intelismart's local-first operating discipline can scale into North America programs where organizations need the same technology standard across the United States and Canada.",
+    image: `${serviceImagePath}Datacenter-Support-Services-2.png`,
+    alt: "Network infrastructure and connected technology systems",
+    keywords: [
+      "North America technology rollouts",
+      "US Canada IT rollouts",
+      "multi-site technology infrastructure North America",
+      "Canada network infrastructure rollout"
+    ],
+    problems: [
+      "Regional growth creates inconsistent equipment, vendors, and support expectations",
+      "Cross-border sites need standards without losing local execution",
+      "Leadership cannot compare infrastructure health across locations",
+      "New sites are delayed by unclear technology ownership"
+    ],
+    solutions: [
+      "Reference architecture for network, Wi-Fi, voice, security, displays, and support",
+      "Rollout playbooks, site readiness checklists, and remote coordination",
+      "Vendor-neutral equipment standards and documentation expectations",
+      "Support model planning for U.S. and Canada expansion"
+    ],
+    outcomes: [
+      "Consistent technology experience across regions",
+      "Faster replication from one location to the next",
+      "Clearer accountability for infrastructure decisions",
+      "A foundation for multi-site monitoring, lifecycle reviews, and support contracts"
+    ],
+    relatedServices: ["Network Infrastructure", "Managed IT Services", "Fiber Optics & Dedicated Internet", "VoIP & Intercom Solutions"],
+    cta: "Discuss a North America rollout standard",
+    expansionNote:
+      "Houston and Texas remain the local priority, while this page supports Intelismart's broader United States and Canada growth strategy."
+  }
+];
+
 export const navGroups = {
   about: [
     { label: "About Us", href: "/about-intelismart" },
@@ -1470,5 +1913,9 @@ export const navGroups = {
   services: services.map((service) => ({
     label: service.title,
     href: `/services/${service.slug}`
+  })),
+  serviceAreas: serviceAreaPages.map((page) => ({
+    label: page.eyebrow,
+    href: `/service-areas/${page.slug}`
   }))
 };

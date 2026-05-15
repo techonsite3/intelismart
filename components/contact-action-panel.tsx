@@ -30,6 +30,12 @@ export function ContactActionPanel() {
         phone: formData.get("phone"),
         email: formData.get("email"),
         service: formData.get("service"),
+        businessType: formData.get("businessType"),
+        locations: formData.get("locations"),
+        timeline: formData.get("timeline"),
+        budget: formData.get("budget"),
+        preferredCallbackTime: formData.get("preferredCallbackTime"),
+        telecomBillReview: formData.get("telecomBillReview"),
         currentCustomer: formData.get("currentCustomer"),
         message: formData.get("message")
       })
@@ -67,7 +73,11 @@ export function ContactActionPanel() {
         <div className="contact-success-panel" role="status">
           <p className="label">Message sent</p>
           <h2>Thanks. We received your request.</h2>
-          <p>An Intelismart team member will review it and follow up with the right next step.</p>
+          <p>
+            A systems consultant will review your request and follow up with the
+            right next step. For urgent outages, call Intelismart directly so we
+            can route the issue faster.
+          </p>
         </div>
       ) : showForm ? (
         <form className="contact-form" id="contact-message-form" onSubmit={submitContactForm}>
@@ -101,6 +111,65 @@ export function ContactActionPanel() {
               <option>Urgent incident</option>
             </select>
           </label>
+          <label>
+            Business type
+            <select name="businessType" defaultValue="" required>
+              <option value="" disabled>Select type</option>
+              <option>Office / Small business</option>
+              <option>Church / Campus</option>
+              <option>Retail / Restaurant</option>
+              <option>Warehouse / Industrial</option>
+              <option>Hotel / Hospitality</option>
+              <option>Government / Public sector</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            Number of locations
+            <select name="locations" defaultValue="" required>
+              <option value="" disabled>Select range</option>
+              <option>1 location</option>
+              <option>2-5 locations</option>
+              <option>6-20 locations</option>
+              <option>21+ locations</option>
+              <option>Planning new location</option>
+            </select>
+          </label>
+          <label>
+            Timeline
+            <select name="timeline" defaultValue="" required>
+              <option value="" disabled>Select timeline</option>
+              <option>Urgent / this week</option>
+              <option>Next 30 days</option>
+              <option>1-3 months</option>
+              <option>3+ months</option>
+              <option>Researching options</option>
+            </select>
+          </label>
+          <label>
+            Budget range
+            <select name="budget" defaultValue="" required>
+              <option value="" disabled>Select range</option>
+              <option>Under $5,000</option>
+              <option>$5,000-$15,000</option>
+              <option>$15,000-$50,000</option>
+              <option>$50,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>
+            Preferred callback time
+            <input name="preferredCallbackTime" type="text" placeholder="Morning, afternoon, or a specific time" />
+          </label>
+          <label>
+            Telecom bill review?
+            <select name="telecomBillReview" defaultValue="" required>
+              <option value="" disabled>Select one</option>
+              <option>Yes, we want a cost review</option>
+              <option>No, not right now</option>
+              <option>Not sure</option>
+            </select>
+          </label>
           <label className="wide">
             Current customer?
             <select name="currentCustomer" defaultValue="" required>
@@ -115,7 +184,7 @@ export function ContactActionPanel() {
             <textarea
               name="message"
               rows={4}
-              placeholder="Briefly describe the project or current issue."
+              placeholder="Briefly describe the project, issue, sites, or links to photos, bills, or documents."
               required
             />
           </label>
