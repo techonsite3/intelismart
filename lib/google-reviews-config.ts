@@ -16,7 +16,7 @@ export type ReviewsPayload = {
 };
 
 const defaultGoogleReviewsUrl =
-  "https://www.google.com/search?q=intelismart&oq=intelismart&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyEQgDEC4YChgLGK8BGMcBGIAEMgsIBBAAGAoYCxiABDILCAUQABgKGAsYgAQyBggGEEUYPDIGCAcQRRg80gEIODU0M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x8640d98e3aed396d:0xd67237a7f93a6fe9,1,,,,";
+  "https://www.google.com/search?sca_esv=0d82fdce82ae5c26&sxsrf=ANbL-n7qfRaBUaUAJA5iowWInUVZaT-fEw:1778871907972&q=intelismart+llc+houston+reviews&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOcw4ncZkyleYZL78l6cs8B3lLxKoN87To2bqKRPaW3-wZnjMBA1GUEEsfAQ_9SsrXaB6izDSnSRKlyb-ikN3Vh7q-J_ykD16iZz2YrEUlwpKLlkUdg%3D%3D&sa=X&ved=2ahUKEwibxbOh_ruUAxWKmmoFHTK2JA8Q9qsLegQIGBAG&biw=411&bih=850&dpr=3.5#ebo=2";
 
 export const googleReviewsEnv = {
   placeId: process.env.GOOGLE_PLACE_ID || "REPLACE_LATER",
@@ -195,7 +195,7 @@ export const placeholderReviews: ReviewItem[] = [
 ];
 
 export const placeholderReviewsPayload: ReviewsPayload = {
-  averageRating: 4.9,
+  averageRating: 5.0,
   totalReviews: 20,
   sourceLabel: "Google",
   reviewsUrl: googleReviewsEnv.reviewsUrl,
