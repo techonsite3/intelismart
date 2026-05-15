@@ -1,10 +1,21 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { IndustryStoryExplorer } from "@/components/industry-story-explorer";
 import { LeadCapture } from "@/components/lead-capture";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import { buildPageMetadata } from "@/lib/seo";
 import { buildoutStory, industries, industryStories } from "@/lib/site-content";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Industries Served",
+  description:
+    "Explore how Intelismart supports churches, healthcare, legal, construction, manufacturing, hospitality, retail, and growing businesses with integrated infrastructure.",
+  path: "/industries",
+  image: "/images/industries/churches-nonprofits.jpg",
+  imageAlt: "Industries Intelismart serves across commercial environments"
+});
 
 export default function IndustriesPage() {
   return (

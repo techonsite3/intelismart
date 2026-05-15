@@ -1,8 +1,19 @@
+import type { Metadata } from "next";
 import { ContactActionPanel } from "@/components/contact-action-panel";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import { buildPageMetadata } from "@/lib/seo";
 import { contact } from "@/lib/site-content";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Contact Our Team",
+  description:
+    "Contact Intelismart for system evaluations, infrastructure support, managed IT, AV, VoIP, security, fiber, and commercial technology projects in Houston and beyond.",
+  path: "/contact",
+  image: "/og-image.jpg",
+  imageAlt: "Contact Intelismart for infrastructure and support services"
+});
 
 export default function ContactPage() {
   return (

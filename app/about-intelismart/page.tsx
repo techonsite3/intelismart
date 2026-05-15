@@ -13,12 +13,16 @@ import { LeadCapture } from "@/components/lead-capture";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Intelismart",
+export const metadata: Metadata = buildPageMetadata({
+  title: "About the Company",
   description:
-    "Intelismart provides managed IT, network infrastructure, communication systems, infrastructure deployment, audits, and cost optimization for scalable business operations."
-};
+    "Intelismart provides managed IT, network infrastructure, communication systems, infrastructure deployment, audits, and cost optimization for scalable business operations.",
+  path: "/about-intelismart",
+  image: "/og-image.jpg",
+  imageAlt: "Intelismart infrastructure and operations overview"
+});
 
 const coreServices = [
   {

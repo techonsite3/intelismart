@@ -74,9 +74,9 @@ export function ContactActionPanel() {
           <p className="label">Message sent</p>
           <h2>Thanks. We received your request.</h2>
           <p>
-            A systems consultant will review your request and follow up with the
-            right next step. For urgent outages, call Intelismart directly so we
-            can route the issue faster.
+            A systems consultant may review your request and follow up within 1
+            business day. For urgent outages, call Intelismart directly so we can
+            route the issue faster.
           </p>
         </div>
       ) : showForm ? (

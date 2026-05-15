@@ -7,8 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
 import { contact, serviceAreaPages } from "@/lib/site-content";
-
-const siteUrl = "https://intelismart.com";
+import { buildPageMetadata, siteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return serviceAreaPages.map((page) => ({ slug: page.slug }));
@@ -26,32 +25,13 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: page.metaTitle,
+  return buildPageMetadata({
+    title: page.metaTitle.replace(/\s*\|\s*Intelismart$/, ""),
     description: page.metaDescription,
-    alternates: {
-      canonical: `/service-areas/${page.slug}`
-    },
-    openGraph: {
-      title: page.metaTitle,
-      description: page.metaDescription,
-      url: `${siteUrl}/service-areas/${page.slug}`,
-      images: [
-        {
-          url: page.image,
-          width: 1200,
-          height: 630,
-          alt: page.alt
-        }
-      ]
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: page.metaTitle,
-      description: page.metaDescription,
-      images: [page.image]
-    }
-  };
+    path: `/service-areas/${page.slug}`,
+    image: page.image,
+    imageAlt: page.alt
+  });
 }
 
 export default async function ServiceAreaDetailPage({

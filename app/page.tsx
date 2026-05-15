@@ -6,6 +6,7 @@ import { LeadCapture } from "@/components/lead-capture";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import { buildOrganizationSchema } from "@/lib/seo";
 import {
   approach,
   heroPoster,
@@ -108,10 +109,16 @@ const compassServiceBreakdown = [
 const evaluationService = services.find((service) => service.slug === "system-evaluation");
 
 export default function Home() {
+  const organizationSchema = buildOrganizationSchema();
+
   return (
     <main>
       <SiteHeader />
       <StickyBottomMenu />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
 
       <section className="hero" id="home">
         <HeroVideo poster={heroPoster} />

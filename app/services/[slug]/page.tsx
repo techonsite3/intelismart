@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Check, Plus } from "lucide-react";
@@ -5,6 +6,12 @@ import { LeadCapture } from "@/components/lead-capture";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildPageMetadata,
+  buildServiceSchema
+} from "@/lib/seo";
 import { services } from "@/lib/site-content";
 
 const serviceBundles = [
@@ -30,11 +37,77 @@ export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
+const serviceSeoContent: Record<
+  string,
+  {
+    title: string;
+    description: string;
+  }
+> = {
+  "digital-menu-board-solutions": {
+    title: "Digital Menu Board Solutions Houston",
+    description:
+      "Centralized digital menu board solutions in Houston for restaurants, churches, retail counters, and multi-site operations that need fast updates and reliable playback."
+  },
+  "av-media-systems": {
+    title: "Audio Visual & Media Systems Houston",
+    description:
+      "Intelismart designs and supports AV and media systems in Houston for sanctuaries, conference rooms, event spaces, and commercial environments that need clean control and dependable performance."
+  },
+  "network-infrastructure": {
+    title: "Network Infrastructure Installation Houston",
+    description:
+      "Structured cabling, Wi-Fi, switching, routing, firewall, and commercial network infrastructure installation in Houston for organizations that need performance, uptime, and growth."
+  },
+  "fiber-optics-dedicated-internet": {
+    title: "Fiber Optics & Dedicated Internet Houston",
+    description:
+      "Houston fiber infrastructure, dedicated internet, failover planning, and carrier coordination for environments that need stable bandwidth, low latency, and business continuity."
+  },
+  "security-surveillance": {
+    title: "Commercial Security & CCTV Installation Houston",
+    description:
+      "Commercial CCTV, surveillance, access control, and entry systems in Houston for offices, churches, retail, hospitality, and industrial sites that need reliable visibility and control."
+  },
+  "managed-it-services": {
+    title: "Managed IT Services Houston",
+    description:
+      "Managed IT services in Houston with monitoring, support, security, backups, Microsoft 365 help, and multi-site operational support for growing organizations."
+  },
+  "datacenter-support-services": {
+    title: "Datacenter Support Services Houston",
+    description:
+      "Datacenter support in Houston including remote hands, rack and stack, patching, cabling, audits, and documented execution for time-sensitive infrastructure work."
+  },
+  "training-enablement": {
+    title: "IT Training & Enablement Services",
+    description:
+      "Intelismart provides training and enablement services so teams can operate infrastructure, AV, security, and communication systems with confidence after deployment."
+  },
+  "system-evaluation": {
+    title: "Free System Evaluation Houston",
+    description:
+      "Request a free Intelismart system evaluation in Houston to uncover technology cost savings, performance gaps, infrastructure risks, and practical next steps."
+  },
+  "voip-intercom-solutions": {
+    title: "VoIP & Intercom Systems Houston",
+    description:
+      "VoIP phone systems, intercoms, paging, and business communication infrastructure in Houston for commercial spaces, churches, campuses, and multi-site teams."
+  }
+};
+
+function getServiceFaqs(service: (typeof services)[number]) {
+  return [
+    ...(service.faqs || []),
+    ...(service.faqGroups?.flatMap((group) => group.items) || [])
+  ];
+}
+
 export async function generateMetadata({
   params
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
 
@@ -42,10 +115,18 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: `${service.title} | Intelismart`,
+  const seoContent = serviceSeoContent[service.slug] || {
+    title: service.title,
     description: service.detail
   };
+
+  return buildPageMetadata({
+    title: seoContent.title,
+    description: seoContent.description,
+    path: `/services/${service.slug}`,
+    image: service.image,
+    imageAlt: service.alt
+  });
 }
 
 export default async function ServiceDetailPage({
@@ -60,10 +141,34 @@ export default async function ServiceDetailPage({
     notFound();
   }
 
+  const seoContent = serviceSeoContent[service.slug] || {
+    title: service.title,
+    description: service.detail
+  };
+  const faqs = getServiceFaqs(service);
+  const structuredData = [
+    buildServiceSchema({
+      name: service.title,
+      description: seoContent.description,
+      path: `/services/${service.slug}`,
+      image: service.image
+    }),
+    buildBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Services", path: "/services" },
+      { name: service.title, path: `/services/${service.slug}` }
+    ]),
+    ...(faqs.length ? [buildFaqSchema(faqs)] : [])
+  ];
+
   return (
     <main>
       <SiteHeader />
       <StickyBottomMenu />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <section className="service-detail-hero">
         <Image
           src={service.image}

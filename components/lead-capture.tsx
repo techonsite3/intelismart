@@ -169,7 +169,7 @@ export function LeadModal({ type, onClose }: { type: LeadType; onClose: () => vo
             <p>
               {isCallback
                 ? "We're excited to help you. An Intelismart team member will follow up using the phone number you provided."
-                : "We're excited to help you. Your request has been sent to the Intelismart team."}
+                : "Your request has been received. A systems consultant may review it and follow up within 1 business day."}
             </p>
             <button className="btn btn-light" type="button" onClick={onClose}>
               Done

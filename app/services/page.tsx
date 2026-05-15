@@ -1,10 +1,21 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { LeadCapture } from "@/components/lead-capture";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import { buildPageMetadata } from "@/lib/seo";
 import { serviceAreaPages, services } from "@/lib/site-content";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Integrated Technology Services",
+  description:
+    "Intelismart delivers integrated technology services across managed IT, AV, network infrastructure, fiber, VoIP, security, datacenter support, training, and system evaluations.",
+  path: "/services",
+  image: "/images/services/Managed-IT-Services-1.png",
+  imageAlt: "Intelismart integrated technology services overview"
+});
 
 const recurringPlans = [
   "Managed monitoring for network, firewall, Wi-Fi, VoIP, and critical infrastructure",

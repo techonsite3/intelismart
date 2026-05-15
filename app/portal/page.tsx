@@ -3,12 +3,16 @@ import { ArrowRight, CalendarClock, Gauge, Home, LifeBuoy, ShieldCheck, Wifi } f
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Client Portal Coming Soon",
   description:
-    "The Intelismart client portal is coming soon for service requests, system visibility, scheduling, and support."
-};
+    "The Intelismart client portal is coming soon for service requests, system visibility, scheduling, and support.",
+  path: "/portal",
+  image: "/og-image.jpg",
+  imageAlt: "Intelismart client portal preview"
+});
 
 const portalStats = [
   { label: "Open Requests", value: "04" },
