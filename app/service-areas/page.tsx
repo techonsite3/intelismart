@@ -5,16 +5,17 @@ import { LeadCapture } from "@/components/lead-capture";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyBottomMenu } from "@/components/sticky-bottom-menu";
+import { buildPageMetadata } from "@/lib/seo";
 import { serviceAreaPages } from "@/lib/site-content";
 
-export const metadata: Metadata = {
-  title: "Service Areas & SEO Markets",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Houston, Katy, Texas & North America Service Areas",
   description:
-    "Intelismart serves Houston, Katy, Texas, and North America with integrated infrastructure, managed IT, network, VoIP, CCTV, fiber, AV, and multi-site rollout services.",
-  alternates: {
-    canonical: "/service-areas"
-  }
-};
+    "Intelismart serves Houston, Katy, Texas, the United States, and Canada with managed IT, structured cabling, network, VoIP, CCTV, fiber, AV, and multi-site rollout services.",
+  path: "/service-areas",
+  image: "/images/services/Datacenter-Support-Services-2.png",
+  imageAlt: "Intelismart network infrastructure service areas across Houston, Texas, and North America"
+});
 
 const localSignals = [
   "Houston-first local SEO pages for high-intent commercial searches",
@@ -70,7 +71,7 @@ export default function ServiceAreasPage() {
                 <h2>{page.eyebrow}</h2>
                 <p>{page.summary}</p>
                 <a href={`/service-areas/${page.slug}`}>
-                  View market page
+                  Explore {page.eyebrow} Services
                   <ArrowRight aria-hidden="true" size={14} />
                 </a>
               </div>

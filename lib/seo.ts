@@ -2,6 +2,38 @@ import type { Metadata } from "next";
 
 export const siteUrl = "https://intelismart.com";
 const brandName = "Intelismart";
+const companyName = "Intelismart LLC";
+const googleReviewsUrl =
+  "https://www.google.com/search?sca_esv=0d82fdce82ae5c26&sxsrf=ANbL-n7qfRaBUaUAJA5iowWInUVZaT-fEw:1778871907972&q=intelismart+llc+houston+reviews&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOcw4ncZkyleYZL78l6cs8B3lLxKoN87To2bqKRPaW3-wZnjMBA1GUEEsfAQ_9SsrXaB6izDSnSRKlyb-ikN3Vh7q-J_ykD16iZz2YrEUlwpKLlkUdg%3D%3D&sa=X&ved=2ahUKEwibxbOh_ruUAxWKmmoFHTK2JA8Q9qsLegQIGBAG&biw=411&bih=850&dpr=3.5#ebo=2";
+
+const organizationNode = {
+  "@type": "LocalBusiness",
+  "@id": `${siteUrl}/#organization`,
+  name: companyName,
+  url: siteUrl,
+  logo: toAbsoluteUrl("/inteli-trans.png"),
+  image: toAbsoluteUrl("/og-image.jpg"),
+  description:
+    "Intelismart designs, deploys, and supports integrated technology infrastructure including managed IT, networks, VoIP, CCTV, fiber, AV, and multi-site rollouts for Houston, Katy, Texas, and North America.",
+  telephone: "+1-979-999-1901",
+  email: "sales@intelismart.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "11767 Katy Freeway",
+    addressLocality: "Houston",
+    addressRegion: "TX",
+    postalCode: "77079",
+    addressCountry: "US"
+  },
+  areaServed: [
+    { "@type": "City", name: "Houston" },
+    { "@type": "City", name: "Katy" },
+    { "@type": "State", name: "Texas" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" }
+  ],
+  sameAs: [googleReviewsUrl]
+};
 
 type PageMetadataInput = {
   title: string;
@@ -127,10 +159,13 @@ export function buildServiceSchema({
     image: toAbsoluteUrl(image),
     serviceType: name,
     provider: {
-      "@type": "Organization",
+      "@type": "LocalBusiness",
       "@id": `${siteUrl}/#organization`,
-      name: brandName,
-      url: siteUrl
+      name: companyName,
+      url: siteUrl,
+      telephone: "+1-979-999-1901",
+      email: "sales@intelismart.com",
+      address: organizationNode.address
     },
     areaServed: areaServed.map((area) => ({
       "@type": "AdministrativeArea",
@@ -143,36 +178,7 @@ export function buildOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": `${siteUrl}/#organization`,
-        name: "Intelismart LLC",
-        url: siteUrl,
-        logo: toAbsoluteUrl("/inteli-trans.png"),
-        image: toAbsoluteUrl("/og-image.jpg"),
-        description:
-          "Intelismart designs, deploys, and supports integrated technology infrastructure including managed IT, networks, VoIP, CCTV, fiber, AV, and multi-site rollouts for Houston, Katy, Texas, and North America.",
-        telephone: "+1-979-999-1901",
-        email: "sales@intelismart.com",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "11767 Katy Freeway",
-          addressLocality: "Houston",
-          addressRegion: "TX",
-          postalCode: "77079",
-          addressCountry: "US"
-        },
-        areaServed: [
-          { "@type": "City", name: "Houston" },
-          { "@type": "City", name: "Katy" },
-          { "@type": "State", name: "Texas" },
-          { "@type": "Country", name: "United States" },
-          { "@type": "Country", name: "Canada" }
-        ],
-        sameAs: [
-          "https://www.google.com/search?sca_esv=0d82fdce82ae5c26&sxsrf=ANbL-n7qfRaBUaUAJA5iowWInUVZaT-fEw:1778871907972&q=intelismart+llc+houston+reviews&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOcw4ncZkyleYZL78l6cs8B3lLxKoN87To2bqKRPaW3-wZnjMBA1GUEEsfAQ_9SsrXaB6izDSnSRKlyb-ikN3Vh7q-J_ykD16iZz2YrEUlwpKLlkUdg%3D%3D&sa=X&ved=2ahUKEwibxbOh_ruUAxWKmmoFHTK2JA8Q9qsLegQIGBAG&biw=411&bih=850&dpr=3.5#ebo=2"
-        ]
-      },
+      organizationNode,
       {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,

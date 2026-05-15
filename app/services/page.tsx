@@ -9,9 +9,9 @@ import { buildPageMetadata } from "@/lib/seo";
 import { serviceAreaPages, services } from "@/lib/site-content";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Integrated Technology Services",
+  title: "Houston Managed IT, Fiber, VoIP, CCTV & AV Services",
   description:
-    "Intelismart delivers integrated technology services across managed IT, AV, network infrastructure, fiber, VoIP, security, datacenter support, training, and system evaluations.",
+    "Explore Intelismart services for Houston and North America: managed IT, network infrastructure, structured cabling, fiber, VoIP, CCTV, AV, datacenter support, training, and system evaluations.",
   path: "/services",
   image: "/images/services/Managed-IT-Services-1.png",
   imageAlt: "Intelismart integrated technology services overview"
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                 <h2>{service.title}</h2>
                 <p>{service.detail}</p>
                 <a href={`/services/${service.slug}`}>
-                  Learn more
+                  Explore {service.title}
                   <ArrowRight aria-hidden="true" size={14} />
                 </a>
               </div>

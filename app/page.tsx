@@ -212,7 +212,7 @@ export default function Home() {
               <h3>{service.title}</h3>
               <p>{service.text}</p>
               <a href={`/services/${service.slug}`}>
-                Learn more
+                Explore {service.title}
                 <ArrowRight aria-hidden="true" size={14} />
               </a>
             </article>

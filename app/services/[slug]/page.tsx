@@ -96,6 +96,127 @@ const serviceSeoContent: Record<
   }
 };
 
+const serviceKnowledgeContent: Record<
+  string,
+  {
+    eyebrow: string;
+    title: string;
+    summary: string;
+    points: string[];
+  }
+> = {
+  "digital-menu-board-solutions": {
+    eyebrow: "Digital Signage SEO",
+    title: "Houston digital menu board solutions for restaurants, retail counters, churches, and multi-site operators.",
+    summary:
+      "Digital menu boards work best when the displays, network, content workflow, and support model are planned together. Intelismart helps organizations replace static menus and disconnected media players with a controlled signage system that can be updated quickly, scheduled by location, and supported after installation.",
+    points: [
+      "For restaurants and hospitality teams, the value is operational speed: pricing changes, daypart menus, promotions, and limited-time offers can be managed without reprinting materials or relying on one person at one site.",
+      "For churches, retail counters, and campuses, the same display infrastructure can support cafe menus, announcements, event schedules, lobby messaging, and internal communication.",
+      "Because signage depends on reliable connectivity, Intelismart treats menu boards as part of the broader infrastructure plan, including commercial displays, media players, cabling, network access, permissions, and monitoring."
+    ]
+  },
+  "av-media-systems": {
+    eyebrow: "AV Systems SEO",
+    title: "Houston AV systems, worship media, conference rooms, streaming, and control systems.",
+    summary:
+      "Audio visual systems are no longer isolated equipment purchases. They depend on network performance, clean cabling, tuned audio, reliable displays, room control, operator training, and support that understands live environments. Intelismart designs AV and media systems for spaces where communication has to be clear and repeatable.",
+    points: [
+      "Churches and campuses benefit from AV systems that volunteers can operate confidently, including worship audio, livestreaming, stage displays, confidence monitors, and simple presets.",
+      "Commercial teams need conference rooms, event spaces, lobbies, and training rooms where video, audio, and control systems work without constant technical rescue.",
+      "Intelismart connects the AV layer with the network, cabling, streaming, cameras, and support process so the final system feels engineered instead of assembled from unrelated parts."
+    ]
+  },
+  "network-infrastructure": {
+    eyebrow: "Network Infrastructure SEO",
+    title: "Houston network infrastructure, structured cabling, Wi-Fi, switching, firewalls, and secure connectivity.",
+    summary:
+      "Network infrastructure is the foundation for nearly every business system: phones, cameras, cloud applications, POS, guest Wi-Fi, AV, access control, and remote work. Intelismart plans wired and wireless networks around coverage, capacity, security, documentation, and long-term support instead of short-term patchwork.",
+    points: [
+      "A strong network design starts with the physical layer: structured cabling, fiber backbone, racks, patch panels, access point placement, labeling, and serviceable pathways.",
+      "The logical layer matters just as much. VLANs, firewall policies, guest isolation, QoS, monitoring, and failover planning help keep business traffic separated and dependable.",
+      "For Houston, Katy, Texas, and multi-site organizations, Intelismart creates network standards that can be repeated across offices, churches, restaurants, warehouses, and facilities."
+    ]
+  },
+  "fiber-optics-dedicated-internet": {
+    eyebrow: "Fiber & DIA SEO",
+    title: "Houston fiber installation, dedicated internet, business internet failover, and bandwidth planning.",
+    summary:
+      "Fiber and dedicated internet decisions affect uptime, voice quality, cloud access, security systems, and multi-site operations. Intelismart helps organizations evaluate internet costs, carrier options, circuit design, demarc conditions, firewall readiness, and failover requirements before committing to another long-term connectivity contract.",
+    points: [
+      "Dedicated Internet Access is often the right choice when stable upload speed, low latency, service-level agreements, and predictable performance matter more than lowest-cost broadband.",
+      "Fiber value depends on the surrounding infrastructure, including conduit, terminations, optics, rack layout, switch capacity, firewall throughput, and backup connectivity.",
+      "Intelismart supports Houston-first fiber and internet planning while designing standards that can extend to Texas, the United States, Canada, and broader North America rollouts."
+    ]
+  },
+  "security-surveillance": {
+    eyebrow: "CCTV & Security SEO",
+    title: "Houston CCTV installation, commercial surveillance, access control readiness, and camera networking.",
+    summary:
+      "Security and surveillance systems need more than cameras on walls. Good outcomes require coverage planning, lighting review, retention design, secure remote access, network segmentation, PoE capacity, and support procedures for the moments when footage actually matters.",
+    points: [
+      "Intelismart designs CCTV systems around entrances, registers, parking areas, docks, children's areas, yards, warehouses, and other operational risk zones.",
+      "Camera uptime depends on the network underneath it, so surveillance planning includes cabling, switching, storage, VLANs, user permissions, and remote viewing security.",
+      "For commercial teams, churches, hospitality, retail, and industrial facilities, this creates a security layer that is easier to maintain, expand, and integrate with voice, intercom, access control, and monitoring."
+    ]
+  },
+  "managed-it-services": {
+    eyebrow: "Managed IT SEO",
+    title: "Houston managed IT services for monitoring, support, cybersecurity, backups, Microsoft 365, and infrastructure lifecycle management.",
+    summary:
+      "Managed IT should reduce operational risk, not just react when something breaks. Intelismart supports organizations that need monitoring, maintenance, user support, security controls, backup planning, cloud administration, and clear accountability across the systems that keep the business running.",
+    points: [
+      "The managed model starts with visibility: devices, users, network equipment, servers, endpoints, cloud services, security policies, and recurring problems are documented before support becomes routine.",
+      "Ongoing support includes patching, monitoring, helpdesk response, endpoint protection, Microsoft 365 assistance, backup checks, and escalation for network, voice, camera, or infrastructure issues.",
+      "For Houston businesses and multi-site teams, Intelismart can operate as a fully managed IT partner or a co-managed extension of an internal team."
+    ]
+  },
+  "datacenter-support-services": {
+    eyebrow: "Datacenter Support SEO",
+    title: "Houston datacenter support, remote hands, rack and stack, cabling, patching, and documentation.",
+    summary:
+      "Datacenter work needs disciplined execution because small mistakes can create major downtime. Intelismart provides hands-on infrastructure support for teams that need local execution, clean cabling, accurate documentation, hardware swaps, and coordinated change windows inside controlled environments.",
+    points: [
+      "Remote hands support can include rack and stack, power checks, cable tracing, fiber or copper patching, device replacement, console access, and photo-backed closeout reporting.",
+      "The work is planned around runbooks, access requirements, maintenance windows, vendor coordination, and verification steps so the remote team knows exactly what changed.",
+      "For distributed infrastructure teams, Intelismart reduces travel burden while improving consistency across Houston, Texas, and broader North America support needs."
+    ]
+  },
+  "training-enablement": {
+    eyebrow: "Training SEO",
+    title: "IT training and enablement for teams operating AV, network, security, voice, and infrastructure systems.",
+    summary:
+      "Technology investments only create value when people know how to use them. Intelismart provides role-based training and enablement for teams that need to operate newly deployed or existing systems with more confidence, consistency, and independence.",
+    points: [
+      "Training can cover AV operation, livestream workflows, camera playback, network basics, content updates, phone system features, administrator responsibilities, and incident procedures.",
+      "Instead of generic classroom material, the training is based on the actual environment, actual users, and the real scenarios the organization faces during services, events, shifts, or outages.",
+      "This is especially valuable for churches, hospitality teams, retail managers, facilities teams, and organizations where non-technical staff are expected to run critical systems."
+    ]
+  },
+  "system-evaluation": {
+    eyebrow: "System Evaluation SEO",
+    title: "Houston system evaluations for technology cost savings, infrastructure risk, performance gaps, and upgrade planning.",
+    summary:
+      "A system evaluation gives leadership a clearer view of what is underperforming, what is overcomplicated, and what may be costing more than it should. Intelismart reviews infrastructure, internet services, telecom, network design, support gaps, and operational risk before recommending changes.",
+    points: [
+      "Common findings include redundant internet services, unmanaged switches, aging firewalls, poor Wi-Fi coverage, unsupported equipment, unclear vendor ownership, and systems that were never designed to work together.",
+      "The goal is practical: identify savings, reduce failure points, improve performance, simplify support, and prioritize upgrades based on business impact.",
+      "This evaluation is often the best first step for Houston organizations, churches, restaurants, warehouses, and multi-site operators that need a roadmap before investing in new infrastructure."
+    ]
+  },
+  "voip-intercom-solutions": {
+    eyebrow: "VoIP & Intercom SEO",
+    title: "Houston VoIP systems, business phone systems, paging, intercom, call routing, and communication infrastructure.",
+    summary:
+      "Voice and intercom systems only perform well when they are designed around the network, facility layout, call flow, users, and support model. Intelismart helps organizations choose between hosted VoIP, on-premise PBX, hybrid voice, paging, and intercom systems based on real operating needs.",
+    points: [
+      "For offices and multi-site teams, the right VoIP design can improve routing, voicemail, call queues, mobile access, remote work, analytics, and telecom cost control.",
+      "For hotels, warehouses, schools, churches, construction sites, and facilities, paging and intercom coverage can be just as important as desk phones.",
+      "Intelismart handles voice quality from the infrastructure up, including VLANs, QoS, failover, cabling, device setup, E911 coordination, training, and ongoing support."
+    ]
+  }
+};
+
 function getServiceFaqs(service: (typeof services)[number]) {
   return [
     ...(service.faqs || []),
@@ -145,6 +266,7 @@ export default async function ServiceDetailPage({
     title: service.title,
     description: service.detail
   };
+  const knowledge = serviceKnowledgeContent[service.slug];
   const faqs = getServiceFaqs(service);
   const structuredData = [
     buildServiceSchema({
@@ -200,6 +322,21 @@ export default async function ServiceDetailPage({
           ))}
         </div>
       </section>
+
+      {knowledge ? (
+        <section className="service-knowledge-section">
+          <div className="service-knowledge-copy">
+            <p className="label">{knowledge.eyebrow}</p>
+            <h2>{knowledge.title}</h2>
+            <p>{knowledge.summary}</p>
+          </div>
+          <div className="service-knowledge-list">
+            {knowledge.points.map((point) => (
+              <p key={point}>{point}</p>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {service.slug === "managed-it-services" ? (
         <section className="service-bundle-section">

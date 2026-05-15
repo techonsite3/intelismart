@@ -131,10 +131,19 @@ export default async function ServiceAreaDetailPage({
           <h2>{page.focus}</h2>
           <p>{page.expansionNote}</p>
         </div>
-        <div className="service-area-keywords" aria-label="Search focus">
-          {page.keywords.map((keyword) => (
-            <span key={keyword}>{keyword}</span>
-          ))}
+        <div className="service-area-search-context" aria-label="Search focus">
+          <p className="label">Search Demand</p>
+          <p>
+            This page is written for buyers comparing partners for{" "}
+            <strong>{page.keywords.slice(0, 2).join(" and ")}</strong>, while
+            still keeping the message natural for decision makers who care about
+            uptime, accountability, and clean execution.
+          </p>
+          <p>
+            Intelismart prioritizes {page.region} visibility first and connects
+            that local intent to broader service categories such as{" "}
+            {page.relatedServices.join(", ")}.
+          </p>
         </div>
       </section>
 

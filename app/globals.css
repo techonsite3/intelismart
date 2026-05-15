@@ -3591,6 +3591,7 @@ button:disabled {
 }
 
 .service-gallery-section,
+.service-knowledge-section,
 .service-sections,
 .service-workflow-section,
 .service-why-section,
@@ -3658,6 +3659,34 @@ button:disabled {
   gap: 10px;
 }
 
+.service-area-search-context {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.018)),
+    var(--panel);
+  padding: 24px;
+}
+
+.service-area-search-context .label {
+  margin-bottom: 0;
+  color: rgba(241, 135, 59, 0.78);
+}
+
+.service-area-search-context p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.62;
+}
+
+.service-area-search-context strong {
+  color: var(--white);
+  font-weight: 760;
+}
+
 .service-area-keywords span,
 .service-area-service-list span,
 .service-area-service-list a {
@@ -3710,6 +3739,43 @@ button:disabled {
 
 .service-gallery-section {
   padding-top: 0;
+}
+
+.service-knowledge-section {
+  display: grid;
+  grid-template-columns: 0.86fr 1fr;
+  gap: 70px;
+  border-top: 1px solid var(--line-dark);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 48%),
+    var(--near-black);
+}
+
+.service-knowledge-copy {
+  max-width: 720px;
+}
+
+.service-knowledge-copy p:not(.label),
+.service-knowledge-list p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.66;
+}
+
+.service-knowledge-list {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.service-knowledge-list p {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+}
+
+.service-knowledge-list p:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .service-gallery {
@@ -4418,6 +4484,7 @@ button:disabled {
   .industry-page-grid,
   .service-detail-body,
   .service-gallery,
+  .service-knowledge-section,
   .service-section-grid,
   .service-workflow-section,
   .service-why-section,
@@ -4817,6 +4884,7 @@ button:disabled {
   .page-grid-section,
   .service-detail-body,
   .service-gallery-section,
+  .service-knowledge-section,
   .service-sections,
   .service-workflow-section,
   .service-why-section,

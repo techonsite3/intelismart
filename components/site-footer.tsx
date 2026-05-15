@@ -82,7 +82,7 @@ export function SiteFooter() {
               <div className="footer-location">
                 <span className="footer-location-flag" aria-hidden="true">🇺🇸</span>
                 <span className="footer-location-country">USA</span>
-                <address>11767 Katy Freeway, Houston Texas - 77079.</address>
+                <address>11767 Katy Freeway, Suite 730, Houston, TX 77079</address>
               </div>
               <div className="footer-location">
                 <span className="footer-location-flag" aria-hidden="true">🇨🇦</span>
